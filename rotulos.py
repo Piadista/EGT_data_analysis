@@ -1,3 +1,20 @@
+import platform
+
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
+
 
 def get_type(elemento):
     if "std" in elemento.lower():
@@ -6,11 +23,13 @@ def get_type(elemento):
         return "Enode"
     elif "bic" in elemento.lower():
         return "Bicamada"
+    elif "bar" in elemento.lower():
+        return "Bare"
 
 def get_chip(elemento):
-    if "/1/disp" in elemento.lower():
+    if versionador+'1'+versionador+'disp' in elemento.lower():
         return "1"
-    elif "/2/disp" in elemento.lower():
+    elif versionador+'2'+versionador+'disp' in elemento.lower():
         return "2"
 
 def get_disp(elemento):
@@ -32,6 +51,8 @@ def get_eletrolito(elemento):
         return "MgCl2"
     elif "kcl" in elemento.lower():
         return "KCl"
+    elif "nenhum" in elemento.lower():
+        return "Nenhum"
 
 def get_measure(elemento):
     if "110transfer" in elemento.lower():

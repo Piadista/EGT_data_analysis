@@ -19,7 +19,22 @@ from function_ppx import *
 from function_multiple import *
 from function_lgt_pulsed import *
 from function_transfer_stability import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 #################################################CRIA ARQUIVO TRANSFERÊNCIA ESTABILIDADE#################################################################################################
 def create_transfer_stability():
@@ -29,7 +44,7 @@ def create_transfer_stability():
                                          'VGS min |gm| [V]','min |gm| [S]', 'VGS min gm [V]','min gm [S]', 'VGS max gm [V]', 'max gm [S]'])
 
     # Export dataframe into a .txt file
-    df_transfer_estabilidade.to_csv('data_transfer_endurance.txt', sep='\t', index=False)
+    df_transfer_estabilidade.to_csv('dados_gerados'+versionador+'data_transfer_endurance.txt', sep='\t', index=False)
 #########################################################################################################################################################################
 
 ######################################################TRANSFERÊNCIA ESTABILIDADE########################################################################################################
@@ -56,7 +71,7 @@ def analise_transfer_stability(nomes_arquivos):
 
 
 
-        df = pd.read_csv('data_transfer_endurance.txt', delimiter="\t")
+        df = pd.read_csv('dados_gerados'+versionador+'data_transfer_endurance.txt', delimiter="\t")
 
         # Correct first column of cycles (Monstro software subscribe wrongly some values)
         df_cor1 = correct_cycle_column(data)
@@ -109,10 +124,10 @@ def analise_transfer_stability(nomes_arquivos):
         df = df.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df.to_csv('data_transfer_endurance.txt', sep='\t', index=False)
-        df.to_csv('data_transfer_endurance.csv', index=False)
+        df.to_csv('dados_gerados'+versionador+'data_transfer_endurance.txt', sep='\t', index=False)
+        df.to_csv('dados_gerados'+versionador+'data_transfer_endurance.csv', index=False)
 
-    df_arrumar = pd.read_csv("data_transfer_endurance.txt", sep="\t")
+    df_arrumar = pd.read_csv('dados_gerados'+versionador+'data_transfer_endurance.txt', sep="\t")
     for i in range(0, len(df_arrumar) // 200):
         # Calculate relevant parameters and choose the appropriate data
         for j in range(0 + (200 * i), 200 + (200 * i)):
@@ -124,11 +139,11 @@ def analise_transfer_stability(nomes_arquivos):
             df_arrumar.at[j, "Sweep"] = nome_novo
 
     # Export dataframe into a .txt file
-    df_arrumar.to_csv('data_transfer_endurance.txt', sep='\t', index=False)
-    df_arrumar.to_csv('data_transfer_endurance.csv', index=False)
+    df_arrumar.to_csv('dados_gerados'+versionador+'data_transfer_endurance.txt', sep='\t', index=False)
+    df_arrumar.to_csv('dados_gerados'+versionador+'data_transfer_endurance.csv', index=False)
 
     # Export the data that will be compiled
-    data = pd.read_csv('data_transfer_endurance.txt', delimiter="\t")
+    data = pd.read_csv('dados_gerados'+versionador+'data_transfer_endurance.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense calculate the mean and std
     data_2 = data.groupby(["Type", "Electrolyte", "Measure", "Sweep"], as_index=False).agg(['mean', 'std'])
@@ -138,8 +153,8 @@ def analise_transfer_stability(nomes_arquivos):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_transfer_endurance_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_transfer_endurance_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_transfer_endurance_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_transfer_endurance_means.csv', index=False)
 
 
 

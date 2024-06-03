@@ -17,7 +17,22 @@ from function_short_pulse import *
 from function_long_pulse import *
 from function_ppx import *
 from function_multiple import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 
 ###################################################CRIA ARQUIVO LGT_PULSED#############################################################################################################
@@ -27,7 +42,7 @@ def create_lgt_pulsed():
                  'Polarization', 'IDSmed [A]', 'Std IDS [A]', 'delIDS [A]', 'Std delIDS [A]', 'Gn [S]', 'Std Gn [S]'])
 
     # Export dataframe into a .txt file
-    df_Resistor.to_csv('data_Resistor.txt', sep='\t', index=False)
+    df_Resistor.to_csv('dados_gerados'+versionador+'data_Resistor.txt', sep='\t', index=False)
 #########################################################################################################################################################################
 
 
@@ -39,7 +54,7 @@ def analise_lgt_pulsed(nomes_pastas):
 
     l = 0
     for caminhos in nomes_pastas:
-        if ("Pulsados/LGT_Pulsed") in caminhos:
+        if ('Pulsados'+versionador+'LGT_Pulsed') in caminhos:
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             lgt.append(caminhos)
             l = l + 1
@@ -62,10 +77,10 @@ def analise_lgt_pulsed(nomes_pastas):
         file_list = []
         for file in os.listdir(folder):
             if file.endswith('.xlsx'):
-                file = '/' + file
+                file = versionador + file
                 file_list.append(file)
         # Append the dictionary to the DataFrame previously created
-        df_comp = pd.read_csv('data_Resistor.txt', delimiter="\t")
+        df_comp = pd.read_csv('dados_gerados'+versionador+'data_Resistor.txt', delimiter="\t")
 
         file_list = sorted(file_list)
 
@@ -139,12 +154,12 @@ def analise_lgt_pulsed(nomes_pastas):
         df_comp = df_comp.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df_comp.to_csv('data_Resistor.txt', sep='\t', index=False)
-        df_comp.to_csv('data_Resistor.csv', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Resistor.txt', sep='\t', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Resistor.csv', index=False)
 
 
         # Export the data that will be compiled
-        data = pd.read_csv('data_Resistor.txt', delimiter="\t")
+        data = pd.read_csv('dados_gerados'+versionador+'data_Resistor.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type","Electrolyte", "Width [s]", "Interval [s]", "Train pulses #", "Resistor", "Measure #", "Polarization"], as_index=False).agg(['mean', 'std'])
@@ -154,8 +169,8 @@ def analise_lgt_pulsed(nomes_pastas):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_Resistor_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_Resistor_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_Resistor_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_Resistor_means.csv', index=False)
 
 
 ################################################################FIM LGT_PULSED###########################################################################################################

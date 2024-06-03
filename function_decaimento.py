@@ -21,7 +21,22 @@ from function_lgt_pulsed import *
 from function_transfer_stability import *
 from function_stability import *
 from function_decaimento import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 
 #############################################################DECAIMENTO#################################################################################################################
@@ -33,7 +48,7 @@ def create_decaimento():
                  'IDSdep (5sp 10sd) [A]', 'Std IDSdep [A]', 'delIDS [A]', 'Std del IDS [A]', 'RatioIDS', 'Std RazIDS'])
 
     # Export dataframe into a .txt file
-    df_Single.to_csv('data_Single.txt', sep='\t', index=False)
+    df_Single.to_csv('dados_gerados'+versionador+'data_Single.txt', sep='\t', index=False)
 ##########################################################################################################################################################################################
 
 
@@ -43,7 +58,7 @@ def analise_decaimento(nomes_pastas):
 
     l = 0
     for caminhos in nomes_pastas:
-        if ("Decaimento/Single Pulse") in caminhos:
+        if ('Decaimento'+versionador+'Single Pulse') in caminhos:
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             singlepulse.append(caminhos)
             l = l + 1
@@ -72,7 +87,7 @@ def analise_decaimento(nomes_pastas):
         potentials = ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8']
 
         # Append the dictionary to the DataFrame previously created
-        df_comp = pd.read_csv('data_Single.txt', delimiter="\t")
+        df_comp = pd.read_csv('dados_gerados'+versionador+'data_Single.txt', delimiter="\t")
 
         i = 0
         # Loop to take the mean current values previous and after each stimulus
@@ -82,7 +97,7 @@ def analise_decaimento(nomes_pastas):
                     # Measure with both polarities
                     if (float(v_g) + float(v_d)) < 1.0:
                         for x in [1, -1]:
-                            file_name = '/Single (' + str(i) + ').txt'
+                            file_name = versionador+'Single (' + str(i) + ').txt'
                             df = pd.read_csv(folder + file_name, delimiter="\t")
 
                             IDSant = (df[(df["Timestamp (s)"] >= 10) & (df["Timestamp (s)"] <= 15)])[
@@ -114,11 +129,11 @@ def analise_decaimento(nomes_pastas):
         df_comp = df_comp.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df_comp.to_csv('data_Single.txt', sep='\t', index=False)
-        df_comp.to_csv('data_Single.csv', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Single.txt', sep='\t', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Single.csv', index=False)
 
         # Export the data that will be compiled
-        data = pd.read_csv('data_Single.txt', delimiter="\t")
+        data = pd.read_csv('dados_gerados'+versionador+'data_Single.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type", "Electrolyte", "Potential [V]", "Width [s]", "VDS [V]"], as_index=False).agg(
@@ -130,8 +145,8 @@ def analise_decaimento(nomes_pastas):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_Single_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_Single_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_Single_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_Single_means.csv', index=False)
 
 
 

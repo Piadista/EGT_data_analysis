@@ -3,7 +3,22 @@ from math import sqrt
 
 import warnings
 from function_transfer import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 ##############################################################FUNÇÕES AUXILIARES PULSO CURTO##########################################################################################
 # Auxiliary function to return the values into the numpy array
@@ -118,7 +133,7 @@ def create_short_pulse():
 
 
     # Export dataframe into a .txt file
-    df_short.to_csv('data_short_pulses.txt', sep='\t', index=False)
+    df_short.to_csv('dados_gerados'+versionador+'data_short_pulses.txt', sep='\t', index=False)
 ########################################################################################################################################################################
 
 
@@ -131,7 +146,7 @@ def analise_short_pulse(nomes_arquivos):
 
     i = 0
     for caminhos in nomes_arquivos:
-        if ("Tempo de Retenção/Pulso Curto/") in caminhos and caminhos.endswith('.txt'):
+        if ('Tempo de Retenção'+versionador+'Pulso Curto'+versionador) in caminhos and caminhos.endswith('.txt'):
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             pulso_curto.append(caminhos)
             i = i + 1
@@ -195,22 +210,22 @@ def analise_short_pulse(nomes_arquivos):
                    'Std delIGS_neg [A]': aux(values_neg, 'stdIGS_del_neg'), 'IGS_pico_ant_neg [A]': aux(values_neg, 'IGS_pic_ant_neg'), 'IGS_pico_dep_neg [A]': aux(values_neg, 'IGS_pic_dep_neg')}
 
         # Append the dictionary to the DataFrame previously created
-        df = pd.read_csv('data_short_pulses.txt', delimiter="\t")
+        df = pd.read_csv('dados_gerados'+versionador+'data_short_pulses.txt', delimiter="\t")
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
         # Reset the index
         df = df.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df.to_csv('data_short_pulses.txt', sep='\t', index=False)
-        df.to_csv('data_short_pulses.csv', index = False)
+        df.to_csv('dados_gerados'+versionador+'data_short_pulses.txt', sep='\t', index=False)
+        df.to_csv('dados_gerados'+versionador+'data_short_pulses.csv', index = False)
 
 
         pulsos = []
         del pulso_curto[0:3]
 
     # Export the data that will be compiled
-    data = pd.read_csv('data_short_pulses.txt', delimiter="\t")
+    data = pd.read_csv('dados_gerados'+versionador+'data_short_pulses.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type","Electrolyte"], as_index=False).agg(['mean', 'std'])
@@ -222,8 +237,8 @@ def analise_short_pulse(nomes_arquivos):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_short_pulses_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_short_pulses_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_short_pulses_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_short_pulses_means.csv', index=False)
 
 
 ######################################################################FIM PULSO CURTO###############################################################################################

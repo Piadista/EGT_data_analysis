@@ -1,11 +1,27 @@
 from rotulos import *
 import pandas as pd
-
 import numpy as np
+import platform
+import originpro as op
+import sys
+import os
+
+sistema_operacional = platform.system()
 
 
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 #########################################################################FUNÇÕES AUXILIARES TRANSFERÊNCIA##############################################################################
+
 
 # Correct the values from first column of cycles
 def correct_cycle_column(df):
@@ -76,7 +92,8 @@ def create_transfer():
 
 
     # Export dataframe into a .txt file
-    df_transfer.to_csv('data_transfer.txt', sep='\t', index=False)
+    df_transfer.to_csv('dados_gerados'+versionador+'data_transfer.txt', sep='\t', index=False)
+    
 
 ##############################################################################################################################################
 
@@ -88,7 +105,7 @@ def analise_transfer(nomes_arquivos):
 
     i = 0
     for caminhos in nomes_arquivos:
-        if ("Transfer/") in caminhos and caminhos.endswith('.txt'):
+        if ('Transfer'+versionador) in caminhos and caminhos.endswith('.txt'):
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             transfers.append(caminhos)
             i = i + 1
@@ -115,6 +132,8 @@ def analise_transfer(nomes_arquivos):
             sweep = 2.0
         df_c = df_c[df_c["Cycle #"] == sweep]
         df_c = df_c.drop_duplicates(subset=['V'])
+
+       
 
         # Relevant parameters calculation
         values = transfer_extractor_values(df_c)
@@ -148,18 +167,18 @@ def analise_transfer(nomes_arquivos):
                    'min gm [S]': GM_MIN, 'VGS max gm [V]': VGS_GM_MAX, 'max gm [S]': GM_MAX}
 
         # Append the dictionary to the DataFrame previously created
-        df = pd.read_csv('data_transfer.txt', delimiter="\t")
+        df = pd.read_csv('dados_gerados'+versionador+'data_transfer.txt', delimiter="\t")
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
         # Reset the index
         df = df.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df.to_csv(f'data_transfer.txt', sep='\t', index=False)
-        df.to_csv(f'data_transfer.csv', index=False)
+        df.to_csv(f'dados_gerados'+versionador+'data_transfer.txt', sep='\t', index=False)
+        df.to_csv(f'dados_gerados'+versionador+'data_transfer.csv', index=False)
 
         # Export the data that will be compiled
-        data = pd.read_csv('data_transfer.txt', delimiter="\t")
+        data = pd.read_csv('dados_gerados'+versionador+'data_transfer.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type", "Electrolyte", "Measure", "Sweep"], as_index=False).agg(['mean', 'std'])
@@ -169,11 +188,12 @@ def analise_transfer(nomes_arquivos):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv(f'data_transfer_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv(f'data_transfer_means.csv', index=False)
+    new_dataframe.to_csv(f'dados_gerados'+versionador+'data_transfer_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv(f'dados_gerados'+versionador+'data_transfer_means.csv', index=False)
 
-
-
-#####################################################################FIM TRANSFER###################################################################################################
+   
+    
+   
+####################################################################FIM TRANSFER###################################################################################################
 
 

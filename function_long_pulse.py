@@ -15,6 +15,24 @@ import warnings
 from function_transfer import *
 from function_short_pulse import *
 
+import platform
+
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
+
+
 
 ###############################################################FUNÇÕES AUXILIARES PULSO LONGO############################################################################################
 
@@ -56,9 +74,9 @@ def exp_fit(df, ini, fin):
 
     # Aware, trick to overcome issue about the convergence of fit data in a large range
     if fin - ini > 500:
-        popt, pcov = curve_fit(exp, x, y, p0=[3e+00, 2e-03, 10],maxfev=2000)
+        popt, pcov = curve_fit(exp, x, y, p0=[3e+00, 2e-03, 10], maxfev=4000)
     else:
-        popt, pcov = curve_fit(exp, x, y, p0=[1e+00, 2e-1, 10],maxfev=2000)
+        popt, pcov = curve_fit(exp, x, y, p0=[1e+00, 2e-1, 10],maxfev=4000)
     perr = np.sqrt(np.diag(pcov))
 
     # residual sum of squares
@@ -103,7 +121,7 @@ def create_long_pulse():
                                    'Std Slope neg [muA/s]', 'r2 linear neg'])
 
     # Export dataframe into a .txt file
-    df_long.to_csv('data_long_pulses.txt', sep='\t', index=False)
+    df_long.to_csv('dados_gerados'+versionador+'data_long_pulses.txt', sep='\t', index=False)
 
 #######################################################################################################################################################################
 
@@ -116,15 +134,17 @@ def analise_long_pulse(nomes_arquivos):
 
     i = 0
     for caminhos in nomes_arquivos:
-        if ("Tempo de Retenção/Pulso Longo/") in caminhos and caminhos.endswith('.txt'):
+        if ('Tempo de Retenção'+versionador+'Pulso Longo'+versionador) in caminhos and caminhos.endswith('.txt'):
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             pulso_longo.append(caminhos)
             i = i + 1
 
     i = 0
+    j=0
     pulsos = []
     for i in range(len(pulso_longo)//3):
         i = i + 1
+        j=j+1
         k = 0
         for elemento in pulso_longo[0:3]:
             
@@ -192,7 +212,7 @@ def analise_long_pulse(nomes_arquivos):
         plt.title('Ajuste Exponencial da Corrente ao Tempo')
         plt.legend([f'Tau: {tau_tra_pos} a: {a_tra_pos} c: {c_tra_pos}', f'Chip: {tipo_chip} Valor Chip: {valor_chip} Valor Disp: {valor_disp} Tipo Eletrolito: {tipo_eletrolito}'])
         plt.grid(True)
-        plt.savefig(f"graficoant_{i}.png")
+        plt.savefig(f'graficos_gerados'+versionador+f'graficopos_{i}.png')
        
         plt.show()
         
@@ -205,10 +225,33 @@ def analise_long_pulse(nomes_arquivos):
         IDSm_n_a, stdIDSm_n_a = find_current_mean(df_neg, 150, 160, 'Current SMUb (A)')
         IGSm_n_a, stdIGSm_n_a = find_current_mean(df_neg, 150, 160, 'Current SMUA (A)')
 
-        a_tra_neg, std_a_tra_neg, tau_tra_neg, std_tau_tra_neg, c_tra_neg, std_c_tra_neg, r2_tra_neg,x02 = exp_fit(df_neg, 145.5, 160)
-        a_long_neg, std_a_long_neg, tau_long_neg, std_tau_long_neg, c_long_neg, std_c_long_neg, r2_long_neg,x02 = exp_fit(df_neg, 170, 1170)
+        a_tra_neg, std_a_tra_neg, tau_tra_neg, std_tau_tra_neg, c_tra_neg, std_c_tra_neg, r2_tra_neg,x02 = exp_fit(df_neg, 145.5, 170)
+        a_long_neg, std_a_long_neg, tau_long_neg, std_tau_long_neg, c_long_neg, std_c_long_neg, r2_long_neg,x022 = exp_fit(df_neg, 170, 1170)
         slo_neg, std_slope_neg, r2_neg_lin = linear_fit(df_neg, 1500, 3000)
 
+        #Plot Gráfico Negativo
+        plt.figure(figsize=(10, 6))
+        
+        # Plot dos dados originais
+        plt.scatter(df_neg["Timestamp (s)"], df_neg["Current SMUb (A)"] * 10**6, label='Dados Originais', color='blue')
+         
+        # Cálculo dos valores da curva ajustada
+        x_values = np.linspace(145.5, 170, 100)
+        y_values = exp(x_values - x02, a_tra_neg, 1/tau_tra_neg, c_tra_neg) 
+         
+        # Plot da curva ajustada
+        plt.plot(x_values, y_values, label='Curva Ajustada (Exponencial)', color='red')
+         
+        plt.xlabel('Tempo (s)')
+        plt.ylabel('Corrente (uA)')
+        plt.xlim(130, 220)
+        plt.title('Ajuste Exponencial da Corrente ao Tempo')
+        plt.legend([f'Tau: {tau_tra_neg} a: {a_tra_neg} c: {c_tra_neg}', f'Chip: {tipo_chip} Valor Chip: {valor_chip} Valor Disp: {valor_disp} Tipo Eletrolito: {tipo_eletrolito}'])
+        plt.grid(True)
+        plt.savefig(f'graficos_gerados'+versionador+f'graficoneg_{j}.png')
+        
+        plt.show()
+       
 
         # Create a dictionary with the data for the new row
         new_row = {'Type': tipo_chip,'Chip': valor_chip,'Disp': valor_disp, 'Electrolyte': tipo_eletrolito, 'IDSmed (100s - 600s) [A]': IDSm_s, 'Std IDSmed [A]': stdIDSm_s, 'IGSmed (100s - 600s) [A]': IGSm_s,
@@ -227,19 +270,19 @@ def analise_long_pulse(nomes_arquivos):
                   }
 
         # Append the dictionary to the DataFrame previously created
-        df = pd.read_csv('data_long_pulses.txt', delimiter="\t")
+        df = pd.read_csv('dados_gerados'+versionador+'data_long_pulses.txt', delimiter="\t")
         df = pd.concat([df, pd.DataFrame([new_row])], ignore_index=True)
 
         # Reset the index
         df = df.reset_index(drop=True)
 
         # Export dataframe i: nto a .txt file
-        df.to_csv('data_long_pulses.txt', sep='\t', index=False)
-        df.to_csv('data_long_pulses.csv', index=False)
+        df.to_csv('dados_gerados'+versionador+'data_long_pulses.txt', sep='\t', index=False)
+        df.to_csv('dados_gerados'+versionador+'data_long_pulses.csv', index=False)
 
 
         # Export the data that will be compiled
-        data = pd.read_csv('data_long_pulses.txt', delimiter="\t")
+        data = pd.read_csv('dados_gerados'+versionador+'data_long_pulses.txt', delimiter="\t")
 
 
 
@@ -258,6 +301,6 @@ def analise_long_pulse(nomes_arquivos):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_long_pulses_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_long_pulses_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_long_pulses_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_long_pulses_means.csv', index=False)
 ##################################################################FIM PULSO LONGO######################################################################################################

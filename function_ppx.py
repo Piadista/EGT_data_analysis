@@ -15,7 +15,22 @@ import warnings
 from function_transfer import *
 from function_short_pulse import *
 from function_long_pulse import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 
 #################################################################CRIA ARQUIVO PPX######################################################################################################
@@ -26,7 +41,7 @@ def create_ppx():
                                    'Rat_last'])
 
     # Export dataframe into a .txt file
-    df_PPX.to_csv('data_PPX.txt', sep='\t', index=False)
+    df_PPX.to_csv('dados_gerados'+versionador+'data_PPX.txt', sep='\t', index=False)
 ########################################################################################################################################################################
 
 ##################################################################PPX###################################################################################################################
@@ -37,7 +52,7 @@ def analise_ppx(nomes_pastas):
 
     l = 0
     for caminhos in nomes_pastas:
-        if ("Pulsados/PPX") in caminhos:
+        if ('Pulsados'+versionador+'PPX') in caminhos:
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             pulsados.append(caminhos)
             l = l + 1
@@ -60,7 +75,7 @@ def analise_ppx(nomes_pastas):
         suf = ['ms.txt', 'ms (1).txt', 'ms (2).txt', 'ms (3).txt']
 
         # Append the dictionary to the DataFrame previously created
-        df_comp = pd.read_csv('data_PPX.txt', delimiter="\t")
+        df_comp = pd.read_csv('dados_gerados'+versionador+'data_PPX.txt', delimiter="\t")
 
         tipo_chip = get_type(elemento)
         valor_chip = get_chip(elemento)
@@ -71,7 +86,7 @@ def analise_ppx(nomes_pastas):
         for s in suf:
             for v in period_values:
                 file_name = pre + mid + str(int(float(v) * 1000)) + s
-                df = pd.read_csv(folder + '/' + file_name, delimiter="\t")
+                df = pd.read_csv(folder + versionador + file_name, delimiter="\t")
                 # ini_cur is used to calculate current variation to the peak
                 ini_cur = (df[(df["Timestamp (s)"] > (1.0 + float(v) - 0.1 - 0.4)) & (
                             df["Timestamp (s)"] < (1.0 + float(v) - 0.1 - 0.1))])['Current SMUb (A)'].mean()
@@ -113,10 +128,10 @@ def analise_ppx(nomes_pastas):
         df_comp = df_comp.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df_comp.to_csv('data_PPX.txt', sep='\t', index=False)
-        df_comp.to_csv('data_PPX.csv', index = False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_PPX.txt', sep='\t', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_PPX.csv', index = False)
         # Export the data that will be compiled
-        data = pd.read_csv('data_PPX.txt', delimiter="\t")
+        data = pd.read_csv('dados_gerados'+versionador+'data_PPX.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type","Electrolyte", "Potential [V]", "Period [s]"], as_index=False).agg(['mean', 'std'])
@@ -126,8 +141,8 @@ def analise_ppx(nomes_pastas):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_PPX_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_PPX_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_PPX_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_PPX_means.csv', index=False)
 
 #####################################################################FIM PPX###########################################################################################################
 

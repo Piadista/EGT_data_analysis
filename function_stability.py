@@ -21,7 +21,22 @@ from function_lgt_pulsed import *
 from function_transfer_stability import *
 from function_stability import *
 from function_decaimento import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 
 #####################################################CRIA ARQUIVO ESTABILIDADE###########################################################################################################
@@ -32,7 +47,7 @@ def create_stability():
                                       'RatioIDS', 'Std RazIDS'])
 
     # Export dataframe into a .txt file
-    df_Single.to_csv('data_Stability.txt', sep='\t', index=False)
+    df_Single.to_csv('dados_gerados'+versionador+'data_Stability.txt', sep='\t', index=False)
 ####################################################################################################################################################################
 
 
@@ -46,7 +61,7 @@ def analise_stability(nomes_pastas):
 
     l = 0
     for caminhos in nomes_pastas:
-        if ("Estabilidade/Endurance") in caminhos:
+        if ('Estabilidade'+versionador+'Endurance') in caminhos:
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             endurance.append(caminhos)
             l = l + 1
@@ -73,13 +88,13 @@ def analise_stability(nomes_pastas):
         suf = ').txt'
 
         # Append the dictionary to the DataFrame previously created
-        df_comp = pd.read_csv('data_Stability.txt', delimiter="\t")
+        df_comp = pd.read_csv('dados_gerados'+versionador+'data_Stability.txt', delimiter="\t")
 
         # Loop to take the mean current values previous and after each stimulus
         for i in range(0, 100):
             try:
 
-                file_name = '/Stability (' + str(i) + ').txt'
+                file_name = versionador+'Stability (' + str(i) + ').txt'
                 df = pd.read_csv(folder + file_name, delimiter="\t")
                 IDSant = (df[(df["Timestamp (s)"] >= 15) & (df["Timestamp (s)"] <= 25)])['Current SMUb (A)'].mean()
                 Std_IDSant = (df[(df["Timestamp (s)"] >= 15) & (df["Timestamp (s)"] <= 25)])['Current SMUb (A)'].std()
@@ -113,8 +128,8 @@ def analise_stability(nomes_pastas):
         df_comp = df_comp.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df_comp.to_csv('data_Stability.txt', sep='\t', index=False)
-        df_comp.to_csv('data_Stability.csv', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Stability.txt', sep='\t', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Stability.csv', index=False)
 
 
 

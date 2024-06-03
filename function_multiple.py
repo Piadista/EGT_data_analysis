@@ -17,7 +17,22 @@ from function_short_pulse import *
 from function_long_pulse import *
 from function_ppx import *
 from function_multiple import *
+import platform
 
+
+sistema_operacional = platform.system()
+
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 #########################################################CRIA ARQUIVO MULTIPLE#########################################################################################################
 def create_multiple():
@@ -28,7 +43,7 @@ def create_multiple():
                  'IDSdep (+3, +4s) [A]', 'Std IDSdep [A]', 'delIDS [A]', 'Std del IDS [A]', 'RatioIDS', 'Std RazIDS'])
 
     # Export dataframe into a .txt file
-    df_Multiple.to_csv('data_Multiple.txt', sep='\t', index=False)
+    df_Multiple.to_csv('dados_gerados'+versionador+'data_Multiple.txt', sep='\t', index=False)
 ########################################################################################################################################################################
 
 
@@ -40,7 +55,7 @@ def analise_multiple(nomes_pastas):
 
     l = 0
     for caminhos in nomes_pastas:
-        if ("Pulsados/Multiple") in caminhos:
+        if ('Pulsados'+versionador+'Multiple') in caminhos:
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             multiple.append(caminhos)
             l = l + 1
@@ -65,7 +80,7 @@ def analise_multiple(nomes_pastas):
         suf = ['ms.txt', 'ms (1).txt', 'ms (2).txt', 'ms (3).txt']
 
         # Append the dictionary to the DataFrame previously created
-        df_comp = pd.read_csv('data_Multiple.txt', delimiter="\t")
+        df_comp = pd.read_csv('dados_gerados'+versionador+'data_Multiple.txt', delimiter="\t")
 
         tipo_chip = get_type(elemento)
         valor_chip = get_chip(elemento)
@@ -103,12 +118,12 @@ def analise_multiple(nomes_pastas):
         df_comp = df_comp.reset_index(drop=True)
 
         # Export dataframe into a .txt file
-        df_comp.to_csv('data_Multiple.txt', sep='\t', index=False)
-        df_comp.to_csv('data_Multiple.csv', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Multiple.txt', sep='\t', index=False)
+        df_comp.to_csv('dados_gerados'+versionador+'data_Multiple.csv', index=False)
 
 
         # Export the data that will be compiled
-        data = pd.read_csv('data_Multiple.txt', delimiter="\t")
+        data = pd.read_csv('dados_gerados'+versionador+'data_Multiple.txt', delimiter="\t")
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type","Electrolyte", "Potential [V]", "Period [s]", "Pulses #"], as_index=False).agg(['mean', 'std'])
@@ -118,8 +133,8 @@ def analise_multiple(nomes_pastas):
     new_dataframe = data_2.reset_index(drop=True)
 
     # Export dataframe into a .txt file
-    new_dataframe.to_csv('data_Multiple_means.txt', sep='\t', index=False)
-    new_dataframe.to_csv('data_Multiple_means.csv', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_Multiple_means.txt', sep='\t', index=False)
+    new_dataframe.to_csv('dados_gerados'+versionador+'data_Multiple_means.csv', index=False)
 
 
 #################################################################FIM MULTIPLE###########################################################################################################
