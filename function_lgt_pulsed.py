@@ -54,7 +54,7 @@ def analise_lgt_pulsed(nomes_pastas):
 
     l = 0
     for caminhos in nomes_pastas:
-        if ('Pulsados'+versionador+'LGT_Pulsed') in caminhos:
+        if ('Pulsados'+versionador+'LGT Pulsed') in caminhos:
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             lgt.append(caminhos)
             l = l + 1
