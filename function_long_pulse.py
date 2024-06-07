@@ -22,10 +22,8 @@ sistema_operacional = platform.system()
 
 
 if sistema_operacional == "Windows":
-    print("Você está usando o Windows.")
     versionador = '\\'
 elif sistema_operacional == "Linux":
-    print("Você está usando o Linux.")
     versionador = '/'
 elif sistema_operacional == "Darwin":
     print("Você está usando o macOS.")

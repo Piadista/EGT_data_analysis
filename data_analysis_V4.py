@@ -19,10 +19,7 @@ from function_decaimento import *
 from function_retention_time_graphic import *
 import time
 import platform
-from function_long_pulse_graphic import *
-from function_short_pulse_graphic import *
-from function_stability_graphic import *
-from function_ppx_graphic import *
+
 
 
 # Filtrar e ignorar todos os FutureWarnings
@@ -30,7 +27,25 @@ warnings.filterwarnings("ignore", category=FutureWarning)
 # Auxiliary functions
 
 
+sistema_operacional = platform.system()
 
+
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    from function_retention_time_graphic import *
+    from function_long_pulse_graphic import *
+    from function_short_pulse_graphic import *
+    from function_stability_graphic import *
+    from function_ppx_graphic import *
+    from function_single_pulse_graphic import *
+    versionador = '\\'
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 
 
@@ -93,7 +108,11 @@ sub_pasta_ppx = os.path.join('dados_gerados', 'Dados PPX')
 # Cria a subpasta dentro da pasta principal
 os.makedirs(sub_pasta_ppx, exist_ok=True)
 
+# Especifica o caminho da subpasta
+sub_pasta_single_pulse = os.path.join('dados_gerados', 'Dados Single Pulse')
 
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_single_pulse, exist_ok=True)
 
 
 
@@ -138,6 +157,12 @@ sub_pasta_grafico_ppx = os.path.join('graficos_gerados', 'Graficos PPX')
 # Cria a subpasta dentro da pasta principal
 os.makedirs(sub_pasta_grafico_ppx, exist_ok=True)
 
+# Especifica o caminho da subpasta
+sub_pasta_grafico_single_pulse = os.path.join('graficos_gerados', 'Graficos Single Pulse')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_single_pulse, exist_ok=True)
+
 
     
     
@@ -176,6 +201,8 @@ def switch_stability_graphic(option):
     stability_graphic(option)
 def switch_ppx_graphic(option):
     ppx_graphic(option)
+def switch_single_pulse_graphic(option):
+    single_pulse_graphic(option)
     
     
     
@@ -232,6 +259,8 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         funcoes_executadas.append(switch_stability_graphic)
     if funcoes_selecionadas["ppx_graphic"]:
         funcoes_executadas.append(switch_ppx_graphic)
+    if funcoes_selecionadas["single_pulse_graphic"]:
+        funcoes_executadas.append(switch_single_pulse_graphic)
 
     total_funcoes = len(funcoes_executadas)
     progresso = 0
@@ -280,6 +309,10 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         elif funcao == switch_ppx_graphic:
             funcao(nomes_arquivos)
             progress_label.config(text="Gráfico PPX Concluído")
+        elif funcao == switch_single_pulse_graphic:
+            funcao(nomes_pastas)
+            progress_label.config(text="Gráfico Single Pulse Concluído")
+
             
         else:
             funcao()
@@ -318,7 +351,8 @@ def openFile():
         "long_pulse_graphic": long_pulse_graphic_var.get(),
         "short_pulse_graphic": short_pulse_graphic_var.get(),
         "stability_graphic": stability_graphic_var.get(),
-        "ppx_graphic": ppx_graphic_var.get()
+        "ppx_graphic": ppx_graphic_var.get(),
+        "single_pulse_graphic": single_pulse_graphic_var.get()
     }
     analisar_arquivos_em_pasta(filepath, funcoes_selecionadas)
 
@@ -364,6 +398,7 @@ long_pulse_graphic_var = BooleanVar()
 short_pulse_graphic_var = BooleanVar()
 stability_graphic_var = BooleanVar()
 ppx_graphic_var = BooleanVar()
+single_pulse_graphic_var = BooleanVar()
 
 
 # Função chamada quando o botão "Todos" é clicado
@@ -382,6 +417,7 @@ def selecionar_todos():
     short_pulse_graphic_var.set(True)
     stability_graphic_var.set(True)
     ppx_graphic_var.set(True)
+    single_pulse_graphic_var.set(True)
 
 
 
@@ -435,6 +471,9 @@ check_long_pulse.place(x=600, y=110)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="PPX Graphic", variable=ppx_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=600, y=140)
+
+check_long_pulse = ctk.CTkCheckBox(window, text="Single Pulse Graphic", variable=single_pulse_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
+check_long_pulse.place(x=600, y=170)
 
 # Criar o botão para escolher o arquivo
 button = ctk.CTkButton(window, text="Escolher Arquivo", command=openFile, bg_color="#D2691E", fg_color="#D2691E", hover_color="gray", font=(("Arial Bold"), 15))

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="14aef68c-0964-4e39-8ce2-3efe3fe03d80" name="Changes" comment="" />
+    <list default="true" id="14aef68c-0964-4e39-8ce2-3efe3fe03d80" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/data_analysis_V4.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_analysis_V4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function_decaimento_graphic.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2h1Y1k3LBcVwP7dinaItpJjqsCx" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
