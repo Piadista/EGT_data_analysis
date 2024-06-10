@@ -16,22 +16,33 @@ from function_lgt_pulsed import *
 from function_transfer_stability import *
 from function_stability import *
 from function_decaimento import *
-from function_retention_time_graphic import *
 import time
 import platform
-from function_long_pulse_graphic import *
-from function_short_pulse_graphic import *
-from function_stability_graphic import *
-from function_ppx_graphic import *
 
 
 # Filtrar e ignorar todos os FutureWarnings
 warnings.filterwarnings("ignore", category=FutureWarning)
 # Auxiliary functions
 
+sistema_operacional = platform.system()
 
 
-
+if sistema_operacional == "Windows":
+    print("Você está usando o Windows.")
+    versionador = '\\'
+    from function_long_pulse_graphic import *
+    from function_short_pulse_graphic import *
+    from function_stability_graphic import *
+    from function_ppx_graphic import *
+    from function_retention_time_graphic import *
+    
+elif sistema_operacional == "Linux":
+    print("Você está usando o Linux.")
+    versionador = '/'
+elif sistema_operacional == "Darwin":
+    print("Você está usando o macOS.")
+else:
+    print(f"Você está usando um sistema operacional desconhecido: {sistema_operacional}")
 
 
 def criar_pasta(nome_pasta):

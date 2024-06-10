@@ -2,7 +2,6 @@ from rotulos import *
 import pandas as pd
 import numpy as np
 import platform
-import originpro as op
 import sys
 import os
 

@@ -108,17 +108,19 @@ def linear_fit(df, ini, fin):
 
 def create_long_pulse():
     # Create the file with compiled important data
-    df_long = pd.DataFrame(columns=['Type','Chip','Disp', 'Electrolyte', 'IDSmed (100s - 600s) [A]', 'Std IDSmed [A]', 'IGSmed (100s - 600s) [A]',
-                                    'Std IGSmed [A]', 'IDSmed_pos (90s - 100s) [A]', 'Std IDSmed_pos_b [A]', 'IDSmed_pos (130s - 140s) [A]', 'Std IDSmed_pos_d [A]',
-                                    'IDSmed_pos (150s - 160s) [A]', 'Std IDSmed_pos_a [A]', 'a trans pos [muA]', 'Std a trans pos [muA]', 'Tau trans pos [s]',
-                                    'Std Tau trans pos [s]', 'c trans pos [muA]', 'Std c trans pos [muA]', 'r2 trans pos', 'a long pos [muA]', 'Std a long pos [muA]',
-                                    'Tau long pos [s]', 'Std Tau long pos [s]', 'c long pos [muA]', 'Std c long pos [muA]', 'r2 long pos', 'Slope pos [muA/s]',
-                                   'Std Slope pos [muA/s]', 'r2 linear pos',
-                                    'IDSmed_neg (90s - 100s) [A]', 'Std IDSmed_neg_b [A]', 'IDSmed_neg (130s - 140s) [A]', 'Std IDSmed_neg_d [A]',
-                                    'IDSmed_neg (150s - 160s) [A]', 'Std IDSmed_neg_a [A]', 'a trans neg [muA]', 'Std a trans neg [muA]', 'Tau trans neg [s]',
-                                    'Std Tau trans neg [s]', 'c trans neg [muA]', 'Std c trans neg [muA]', 'r2 trans neg', 'a long neg [muA]', 'Std a long neg [muA]',
-                                    'Tau long neg [s]', 'Std Tau long neg [s]', 'c long neg [muA]', 'Std c long neg [muA]', 'r2 long neg', 'Slope neg [muA/s]',
-                                   'Std Slope neg [muA/s]', 'r2 linear neg'])
+    df_long = pd.DataFrame(columns=['Type','Chip','Disp', 'Electrolyte', 'IDSmed (100s - 600s) [A]', 'Std IDSmed [A]', 'IGSmed (100s - 600s) [A]', 
+                                'Std IGSmed [A]', 'IDSmed_pos (90s - 100s) [A]', 'Std IDSmed_pos_b [A]', 'IDSmed_pos (130s - 140s) [A]', 'Std IDSmed_pos_d [A]', 
+                                'IDSmed_pos (150s - 160s) [A]', 'Std IDSmed_pos_a [A]', 'IDSmed_pos (7150s - 7160s) [A]', 'Std IDSmed_pos_f [A]', 
+                                'IGSmed_pos (7150s - 7160s) [A]', 'Std IGSmed_pos_f [A]', 'delIDSmed_pos (f-b) [A]', 'Std delIDSmed_pos [A]', 'a trans pos [muA]', 
+                                'Std a trans pos [muA]', 'Tau trans pos [s]', 'Std Tau trans pos [s]', 'c trans pos [muA]', 'Std c trans pos [muA]', 'r2 trans pos', 
+                                'a long pos [muA]', 'Std a long pos [muA]', 'Tau long pos [s]', 'Std Tau long pos [s]', 'c long pos [muA]', 'Std c long pos [muA]', 
+                                'r2 long pos', 'Slope pos [muA/s]', 'Std Slope pos [muA/s]', 'r2 linear pos',
+                                'IDSmed_neg (90s - 100s) [A]', 'Std IDSmed_neg_b [A]', 'IDSmed_neg (130s - 140s) [A]', 'Std IDSmed_neg_d [A]', 
+                                'IDSmed_neg (150s - 160s) [A]', 'Std IDSmed_neg_a [A]', 'IDSmed_neg (2990s - 3000s) [A]', 'Std IDSmed_neg_f [A]', 
+                                'IGSmed_neg (2990s - 3000s) [A]', 'Std IGSmed_neg_f [A]', 'delIDSmed_neg (f-b) [A]', 'Std delIDSmed_neg [A]', 'a trans neg [muA]', 
+                                'Std a trans neg [muA]', 'Tau trans neg [s]', 'Std Tau trans neg [s]', 'c trans neg [muA]', 'Std c trans neg [muA]', 'r2 trans neg', 
+                                'a long neg [muA]', 'Std a long neg [muA]', 'Tau long neg [s]', 'Std Tau long neg [s]', 'c long neg [muA]', 'Std c long neg [muA]', 
+                                'r2 long neg', 'Slope neg [muA/s]', 'Std Slope neg [muA/s]', 'r2 linear neg'])
 
     # Export dataframe into a .txt file
     df_long.to_csv('dados_gerados'+versionador+'data_long_pulses.txt', sep='\t', index=False)
@@ -189,6 +191,11 @@ def analise_long_pulse(nomes_arquivos):
         IGSm_p_d, stdIGSm_p_d = find_current_mean(df_pos, 130, 140, 'Current SMUA (A)')
         IDSm_p_a, stdIDSm_p_a = find_current_mean(df_pos, 150, 160, 'Current SMUb (A)')
         IGSm_p_a, stdIGSm_p_a = find_current_mean(df_pos, 150, 160, 'Current SMUA (A)')
+        IDSm_p_f, stdIDSm_p_f = find_current_mean(df_pos, 7150, 7160, 'Current SMUb (A)')
+        IGSm_p_f, stdIGSm_p_f = find_current_mean(df_pos, 7150, 7160, 'Current SMUA (A)')
+        delIDSm_p = IDSm_p_f - IDSm_p_b
+        stdDelIDSm_p = sqrt(stdIDSm_p_b**2 + stdIDSm_p_f**2)
+
         a_tra_pos, std_a_tra_pos, tau_tra_pos, std_tau_tra_pos, c_tra_pos, std_c_tra_pos, r2_tra_pos,x01 = exp_fit(df_pos, 145.5, 170)
         a_long_pos, std_a_long_pos, tau_long_pos, std_tau_long_pos, c_long_pos, std_c_long_pos, r2_long_pos,x011 = exp_fit(df_pos, 170, 1170)
         slo_pos, std_slope_pos, r2_pos_lin = linear_fit(df_pos, 3170, 6170)
@@ -224,6 +231,10 @@ def analise_long_pulse(nomes_arquivos):
         IGSm_n_d, stdIGSm_n_d = find_current_mean(df_neg, 130, 140, 'Current SMUA (A)')
         IDSm_n_a, stdIDSm_n_a = find_current_mean(df_neg, 150, 160, 'Current SMUb (A)')
         IGSm_n_a, stdIGSm_n_a = find_current_mean(df_neg, 150, 160, 'Current SMUA (A)')
+        IDSm_n_f, stdIDSm_n_f = find_current_mean(df_pos, 2990, 3000, 'Current SMUb (A)')
+        IGSm_n_f, stdIGSm_n_f = find_current_mean(df_pos, 2990, 3000, 'Current SMUA (A)')
+        delIDSm_n = IDSm_n_f - IDSm_n_b
+        stdDelIDSm_n = sqrt(stdIDSm_n_b**2 + stdIDSm_n_f**2)
 
         a_tra_neg, std_a_tra_neg, tau_tra_neg, std_tau_tra_neg, c_tra_neg, std_c_tra_neg, r2_tra_neg,x02 = exp_fit(df_neg, 145.5, 170)
         a_long_neg, std_a_long_neg, tau_long_neg, std_tau_long_neg, c_long_neg, std_c_long_neg, r2_long_neg,x022 = exp_fit(df_neg, 170, 1170)
@@ -254,20 +265,24 @@ def analise_long_pulse(nomes_arquivos):
        
 
         # Create a dictionary with the data for the new row
-        new_row = {'Type': tipo_chip,'Chip': valor_chip,'Disp': valor_disp, 'Electrolyte': tipo_eletrolito, 'IDSmed (100s - 600s) [A]': IDSm_s, 'Std IDSmed [A]': stdIDSm_s, 'IGSmed (100s - 600s) [A]': IGSm_s,
-                   'Std IGSmed [A]': stdIGSm_s, 'IDSmed_pos (90s - 100s) [A]': IDSm_p_b, 'Std IDSmed_pos_b [A]': stdIDSm_p_b , 'IDSmed_pos (130s - 140s) [A]': IDSm_p_d,
-                   'Std IDSmed_pos_d [A]': stdIDSm_p_d, 'IDSmed_pos (150s - 160s) [A]': IDSm_p_a, 'Std IDSmed_pos_a [A]': stdIDSm_p_a, 'a trans pos [muA]': a_tra_pos,
-                   'Std a trans pos [muA]': std_a_tra_pos, 'Tau trans pos [s]': tau_tra_pos, 'Std Tau trans pos [s]': std_tau_tra_pos, 'c trans pos [muA]': c_tra_pos,
-                   'Std c trans pos [muA]': std_c_tra_pos, 'r2 trans pos': r2_tra_pos, 'a long pos [muA]': a_long_pos, 'Std a long pos [muA]': std_a_long_pos,
-                   'Tau long pos [s]': tau_long_pos, 'Std Tau long pos [s]': std_tau_long_pos, 'c long pos [muA]': c_long_pos, 'Std c long pos [muA]': std_c_long_pos,
-                   'r2 long pos': r2_long_pos, 'Slope pos [muA/s]': slo_pos, 'Std Slope pos [muA/s]': std_slope_pos, 'r2 linear pos': r2_pos_lin,
-                   'IDSmed_neg (90s - 100s) [A]': IDSm_n_b, 'Std IDSmed_neg_b [A]': stdIDSm_n_b , 'IDSmed_neg (130s - 140s) [A]': IDSm_n_d,
-                   'Std IDSmed_neg_d [A]': stdIDSm_n_d, 'IDSmed_neg (150s - 160s) [A]': IDSm_n_a, 'Std IDSmed_neg_a [A]': stdIDSm_n_a, 'a trans neg [muA]': a_tra_neg,
-                   'Std a trans neg [muA]': std_a_tra_neg, 'Tau trans neg [s]': tau_tra_neg, 'Std Tau trans neg [s]': std_tau_tra_neg, 'c trans neg [muA]': c_tra_neg,
-                   'Std c trans neg [muA]': std_c_tra_neg, 'r2 trans neg': r2_tra_neg, 'a long neg [muA]': a_long_neg, 'Std a long neg [muA]': std_a_long_neg,
-                   'Tau long neg [s]': tau_long_neg, 'Std Tau long neg [s]': std_tau_long_neg, 'c long neg [muA]': c_long_neg, 'Std c long neg [muA]': std_c_long_neg,
-                   'r2 long neg': r2_long_neg, 'Slope neg [muA/s]': slo_neg, 'Std Slope neg [muA/s]': std_slope_neg, 'r2 linear neg': r2_neg_lin
-                  }
+        new_row = {'Type': tipo_chip,'Chip': valor_chip,'Disp': valor_disp, 'Electrolyte': tipo_eletrolito, 'IDSmed (100s - 600s) [A]': IDSm_s, 'Std IDSmed [A]': stdIDSm_s, 'IGSmed (100s - 600s) [A]': IGSm_s, 
+           'Std IGSmed [A]': stdIGSm_s, 'IDSmed_pos (90s - 100s) [A]': IDSm_p_b, 'Std IDSmed_pos_b [A]': stdIDSm_p_b , 'IDSmed_pos (130s - 140s) [A]': IDSm_p_d, 
+           'Std IDSmed_pos_d [A]': stdIDSm_p_d, 'IDSmed_pos (150s - 160s) [A]': IDSm_p_a, 'Std IDSmed_pos_a [A]': stdIDSm_p_a, 
+           'IDSmed_pos (7150s - 7160s) [A]': IDSm_p_f, 'Std IDSmed_pos_f [A]': stdIDSm_p_f, 'IGSmed_pos (7150s - 7160s) [A]': IGSm_p_f, 
+           'Std IGSmed_pos_f [A]': stdIGSm_p_f, 'delIDSmed_pos (f-b) [A]': delIDSm_p, 'Std delIDSmed_pos [A]': stdDelIDSm_p, 'a trans pos [muA]': a_tra_pos, 
+           'Std a trans pos [muA]': std_a_tra_pos, 'Tau trans pos [s]': tau_tra_pos, 'Std Tau trans pos [s]': std_tau_tra_pos, 'c trans pos [muA]': c_tra_pos, 
+           'Std c trans pos [muA]': std_c_tra_pos, 'r2 trans pos': r2_tra_pos, 'a long pos [muA]': a_long_pos, 'Std a long pos [muA]': std_a_long_pos, 
+           'Tau long pos [s]': tau_long_pos, 'Std Tau long pos [s]': std_tau_long_pos, 'c long pos [muA]': c_long_pos, 'Std c long pos [muA]': std_c_long_pos, 
+           'r2 long pos': r2_long_pos, 'Slope pos [muA/s]': slo_pos, 'Std Slope pos [muA/s]': std_slope_pos, 'r2 linear pos': r2_pos_lin,
+           'IDSmed_neg (90s - 100s) [A]': IDSm_n_b, 'Std IDSmed_neg_b [A]': stdIDSm_n_b , 'IDSmed_neg (130s - 140s) [A]': IDSm_n_d, 
+           'Std IDSmed_neg_d [A]': stdIDSm_n_d, 'IDSmed_neg (150s - 160s) [A]': IDSm_n_a, 'Std IDSmed_neg_a [A]': stdIDSm_n_a,
+           'IDSmed_neg (2990s - 3000s) [A]': IDSm_n_f, 'Std IDSmed_neg_f [A]': stdIDSm_n_f, 'IGSmed_neg (2990s - 3000s) [A]': IGSm_n_f, 
+           'Std IGSmed_neg_f [A]': stdIGSm_n_f, 'delIDSmed_neg (f-b) [A]': delIDSm_n, 'Std delIDSmed_neg [A]':stdDelIDSm_n, 'a trans neg [muA]': a_tra_neg, 
+           'Std a trans neg [muA]': std_a_tra_neg, 'Tau trans neg [s]': tau_tra_neg, 'Std Tau trans neg [s]': std_tau_tra_neg, 'c trans neg [muA]': c_tra_neg, 
+           'Std c trans neg [muA]': std_c_tra_neg, 'r2 trans neg': r2_tra_neg, 'a long neg [muA]': a_long_neg, 'Std a long neg [muA]': std_a_long_neg, 
+           'Tau long neg [s]': tau_long_neg, 'Std Tau long neg [s]': std_tau_long_neg, 'c long neg [muA]': c_long_neg, 'Std c long neg [muA]': std_c_long_neg, 
+           'r2 long neg': r2_long_neg, 'Slope neg [muA/s]': slo_neg, 'Std Slope neg [muA/s]': std_slope_neg, 'r2 linear neg': r2_neg_lin
+          }
 
         # Append the dictionary to the DataFrame previously created
         df = pd.read_csv('dados_gerados'+versionador+'data_long_pulses.txt', delimiter="\t")
@@ -291,11 +306,11 @@ def analise_long_pulse(nomes_arquivos):
 
     # Group by the relevant columns and remove the columns that do not make sense
     data_2 = data.groupby(["Type","Electrolyte"], as_index=False).agg(['mean', 'std'])
-    data_2 = data_2.drop(['Chip','Disp', 'Std IDSmed [A]', 'Std IGSmed [A]', 'Std IDSmed_pos_b [A]', 'Std IDSmed_pos_d [A]',
-                          'Std IDSmed_pos_a [A]', 'Std a trans pos [muA]', 'Std Tau trans pos [s]', 'Std c trans pos [muA]', 'Std a long pos [muA]',
-                          'Std Tau long pos [s]', 'Std c long pos [muA]', 'Std Slope pos [muA/s]', 'Std IDSmed_neg_b [A]', 'Std IDSmed_neg_d [A]',
+    data_2 = data_2.drop(['Chip','Disp', 'Std IDSmed [A]', 'Std IGSmed [A]', 'Std IDSmed_pos_b [A]', 'Std IDSmed_pos_d [A]', 'Std IDSmed_pos_f [A]', 'Std IGSmed_pos_f [A]',
+                          'Std delIDSmed_pos [A]', 'Std IDSmed_pos_a [A]', 'Std a trans pos [muA]', 'Std Tau trans pos [s]', 'Std c trans pos [muA]', 'Std a long pos [muA]',
+                          'Std Tau long pos [s]', 'Std c long pos [muA]', 'Std Slope pos [muA/s]', 'Std IDSmed_neg_b [A]', 'Std IDSmed_neg_d [A]', 'Std IDSmed_neg_f [A]',
                           'Std IDSmed_neg_a [A]', 'Std a trans neg [muA]', 'Std Tau trans neg [s]', 'Std c trans neg [muA]', 'Std a long neg [muA]',
-                          'Std Tau long neg [s]', 'Std c long neg [muA]', 'Std Slope neg [muA/s]'] , axis=1, level=0)
+                          'Std IGSmed_neg_f [A]', 'Std delIDSmed_neg [A]', 'Std Tau long neg [s]', 'Std c long neg [muA]', 'Std Slope neg [muA/s]'] , axis=1, level=0)
 
     # Reset the index
     new_dataframe = data_2.reset_index(drop=True)
