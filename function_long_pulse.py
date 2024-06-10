@@ -231,8 +231,8 @@ def analise_long_pulse(nomes_arquivos):
         IGSm_n_d, stdIGSm_n_d = find_current_mean(df_neg, 130, 140, 'Current SMUA (A)')
         IDSm_n_a, stdIDSm_n_a = find_current_mean(df_neg, 150, 160, 'Current SMUb (A)')
         IGSm_n_a, stdIGSm_n_a = find_current_mean(df_neg, 150, 160, 'Current SMUA (A)')
-        IDSm_n_f, stdIDSm_n_f = find_current_mean(df_pos, 2990, 3000, 'Current SMUb (A)')
-        IGSm_n_f, stdIGSm_n_f = find_current_mean(df_pos, 2990, 3000, 'Current SMUA (A)')
+        IDSm_n_f, stdIDSm_n_f = find_current_mean(df_neg, 2990, 3000, 'Current SMUb (A)')
+        IGSm_n_f, stdIGSm_n_f = find_current_mean(df_neg, 2990, 3000, 'Current SMUA (A)')
         delIDSm_n = IDSm_n_f - IDSm_n_b
         stdDelIDSm_n = sqrt(stdIDSm_n_b**2 + stdIDSm_n_f**2)
 
