@@ -33,15 +33,19 @@ def ppx_graphic(nomes_pastas):
         sys.excepthook = origin_shutdown_exception_hook
                
     tipos_ppx = pd.read_csv('dados_gerados'+versionador+'data_PPX_means.txt', sep='\t')
-    
+    print(tipos_ppx)
     
     type_ppx = tipos_ppx['Type']
     electrolyte_ppx = tipos_ppx['Electrolyte']
     std_ppx = tipos_ppx['Potential [V]']
     period_ppx = tipos_ppx['Period [s]']
     rat_first = tipos_ppx['Rat_first']
+    rat_first_std = tipos_ppx.iloc[:, 9]
+
+
+
    
-    tipos_ppx = pd.concat([type_ppx,electrolyte_ppx,std_ppx,period_ppx,rat_first],axis=1)
+    tipos_ppx = pd.concat([type_ppx,electrolyte_ppx,std_ppx,period_ppx,rat_first,rat_first_std],axis=1)
     
     tipos_ppx = tipos_ppx.drop(index=0)
     print(len(tipos_ppx))
@@ -94,7 +98,7 @@ def ppx_graphic(nomes_pastas):
    
     
     # Lista de cores para diferenciação
-    colors = ['#335eff', '#ff5733', '#33ff57', '#ff33a1', '#ff9633', '#3380ff']
+    colors = ['#FF0000']
     
     # Lista para armazenar os gráficos
     graphs = []
@@ -107,7 +111,7 @@ def ppx_graphic(nomes_pastas):
         
         # Adiciona todas as colunas da planilha ao gráfico, assumindo que a primeira coluna é X e as outras são Y
         for col in range(1, wks.cols):
-            plot = gp[0].add_plot(wks, coly='Rat_first', colx='Period [s]', type = 202)  # colx=0 assume que a primeira coluna é X
+            plot = gp[0].add_plot(wks, coly='Rat_first', colx='Period [s]', type = 202)  # colx=0 assume que a primeira coluna é X            
             plot.color = colors[col % len(colors)]
             plot.set_int('line.width', 2)
             plot.set_int('lineStyle', 1)
@@ -120,8 +124,7 @@ def ppx_graphic(nomes_pastas):
 
         # Select the part up to the first occurrence of the character
         result = parts[0]+'.'+parts[1] + 'V'
-        lgnd = gp[0].label('Legend')
-        lgnd.text=f'\l(1) {result}'
+        
         gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
         gp[0].axis('x').title = f'Time, t (minutes)'
         gp[0].xlim=(0,None,None)

@@ -77,13 +77,13 @@ def single_pulse_graphic(nomes_pastas):
                     gp[0].xlim = (14.99, 15.01, None)
                     #gp[0].ylim = (0, 2, None)
                 if '100ms' in file_names[i]:
-                    gp[0].xlim = (15.6, 16.4, None)
+                    gp[0].xlim = (15.84, 16.4, None)
                 if '1s' in file_names[i]:
                     gp[0].xlim = (12.5, 22.5, None)
                 if '10s' in file_names[i]:
-                    gp[0].xlim = (10, 55, None)
+                    gp[0].xlim = (10, 30, None)
                 if '40s' in file_names[i]:
-                    gp[0].xlim = (0, 95, None)
+                    gp[0].xlim = (0, 110, None)
                 
                 
                
@@ -99,14 +99,20 @@ def single_pulse_graphic(nomes_pastas):
             # Select the part up to the first occurrence of the character
             result = parts[0]
             lgnd = gp[0].label('Legend')
-            lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V\n\l(7) |0.7| V\n\l(8) |0.8| V'
+            
+            if '200mV' in file_names[i]:
+                lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V\n\l(7) |0.7| V'
+            elif '400mV' in file_names[i]:
+                lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V'
+            else:
+                lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V\n\l(7) |0.7| V\n\l(8) |0.8| V'
             gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
             gp[0].axis('x').title = f'Time, t (seconds)'
             
             if '40s' in file_names[i]:
-                lgnd.set_int('left',4000)
+                lgnd.set_int('left',4500)
             if '10s' in file_names[i]:
-                lgnd.set_int('left',3500)
+                lgnd.set_int('left',1500)
             else:
                 lgnd.set_int('left',4000)
             

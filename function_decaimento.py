@@ -75,355 +75,296 @@ def analise_decaimento(nomes_pastas):
         valor_chip = get_chip(elemento)
         valor_disp = get_disp(elemento)
         tipo_eletrolito = get_eletrolito(elemento)
-        
-        
-        # Define o tamanho da figura
-        total_y = []
-        df_final = pd.DataFrame
-        k = -1
-        
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 == 0:
-              k = k + 1
-              file_path = elemento+f"\\Single ({64+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(df_final.shape)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 40s Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 40s Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-
-        
-        df_final = pd.DataFrame()
-        total_y = []
-
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 != 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({64+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(df_final.shape)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 40s Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 40s Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-        
-        df_final = pd.DataFrame()
-        total_y = []
-          
-        
-        
-        
-        
-        
-        
-        
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 == 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({48+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10s Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10s Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-        print(df_final.shape)
-        
-        df_final = pd.DataFrame()
-        total_y = []
-         
-        
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 != 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({48+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10s Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10s Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-        print(df_final.shape)
-        
-        df_final = pd.DataFrame()
-        total_y = []
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 == 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({32+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 1s Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 1s Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-
-        
-        
-        df_final = pd.DataFrame()
-        total_y = []
+        lista_nomes = ['10ms', '100ms', '1s', '10s', '40s']
+        for r in range(0,5):
+            # Define o tamanho da figura
+            total_y = []
+            df_final = pd.DataFrame
+            k = -1
             
+            # Loop para plotar 16 gráficos
+            for i in range(0, 16):
+                # Crie um subplot na posição i
+                # plt.subplot(4, 4, i)
+                # Carregue os dados do arquivo usando Pandas
+                if i%2 == 0:
+                  k = k + 1
+                  file_path = elemento+f"\\Single ({16*r+i}).txt"
+                  df_single = pd.read_csv(file_path, delimiter="\t")
+                  eixo_x = df_single['Timestamp (s)']
+                  eixo_y = df_single['Current SMUb (A)']
+                  total_y.append(eixo_y.reset_index(drop=True))
+                  df_final = pd.concat(total_y, axis=1)
+                  #data = pd.read_csv(file_path,sep='\t')
+                  #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                 # wks.from_file(file_path)
+                  print(df_final.shape)
+           
+            min_len = min(len(df_final), len(eixo_x))
+            df_final = df_final[:min_len]
+            eixo_x = eixo_x[:min_len]
+            df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+            df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+            df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+    
+            
+            df_final = pd.DataFrame()
+            total_y = []
+    
+            # Define o tamanho da figura
+            k = -1
+            # Loop para plotar 16 gráficos
+            for i in range(0, 16):
+                # Crie um subplot na posição i
+                # plt.subplot(4, 4, i)
+                # Carregue os dados do arquivo usando Pandas
+                if i%2 != 0:
+                  k = k + 1
+            
+                  file_path = elemento+f"\\Single ({16*r+i}).txt"
+                  df_single = pd.read_csv(file_path, delimiter="\t")
+                  eixo_x = df_single['Timestamp (s)']
+                  eixo_y = df_single['Current SMUb (A)']
+                  total_y.append(eixo_y.reset_index(drop=True))
+                  df_final = pd.concat(total_y, axis=1)
+                  #data = pd.read_csv(file_path,sep='\t')
+                  #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                 # wks.from_file(file_path)
+                  print(df_final.shape)
+           
+            min_len = min(len(df_final), len(eixo_x))
+            df_final = df_final[:min_len]
+            eixo_x = eixo_x[:min_len]
+            df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+            df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+            df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+            
+            df_final = pd.DataFrame()
+            total_y = []
+           
+            
+            
+            
+            for r in range(0,5):
+                # Define o tamanho da figura
+                total_y = []
+                df_final = pd.DataFrame
+                k = -1
+                
+                # Loop para plotar 16 gráficos
+                for i in range(0, 16):
+                    # Crie um subplot na posição i
+                    # plt.subplot(4, 4, i)
+                    # Carregue os dados do arquivo usando Pandas
+                    if i%2 == 0:
+                      k = k + 1
+                      file_path = elemento+f"\\Single ({80+16*r+i}).txt"
+                      df_single = pd.read_csv(file_path, delimiter="\t")
+                      eixo_x = df_single['Timestamp (s)']
+                      eixo_y = df_single['Current SMUb (A)']
+                      total_y.append(eixo_y.reset_index(drop=True))
+                      df_final = pd.concat(total_y, axis=1)
+                      #data = pd.read_csv(file_path,sep='\t')
+                      #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                     # wks.from_file(file_path)
+                      print(df_final.shape)
+                      print(file_path)
+                min_len = min(len(df_final), len(eixo_x))
+                df_final = df_final[:min_len]
+                eixo_x = eixo_x[:min_len]
+                df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 50mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 50mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
         
+                
+                df_final = pd.DataFrame()
+                total_y = []
         
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 != 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({32+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 1s Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 1s Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+                # Define o tamanho da figura
+                k = -1
+                # Loop para plotar 16 gráficos
+                for i in range(0, 16):
+                    # Crie um subplot na posição i
+                    # plt.subplot(4, 4, i)
+                    # Carregue os dados do arquivo usando Pandas
+                    if i%2 != 0:
+                      k = k + 1
+                
+                      file_path = elemento+f"\\Single ({80+16*r+i}).txt"
+                      df_single = pd.read_csv(file_path, delimiter="\t")
+                      eixo_x = df_single['Timestamp (s)']
+                      eixo_y = df_single['Current SMUb (A)']
+                      total_y.append(eixo_y.reset_index(drop=True))
+                      df_final = pd.concat(total_y, axis=1)
+                      #data = pd.read_csv(file_path,sep='\t')
+                      #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                     # wks.from_file(file_path)
+                      print(df_final.shape)
+                      print(file_path)
 
+                min_len = min(len(df_final), len(eixo_x))
+                df_final = df_final[:min_len]
+                eixo_x = eixo_x[:min_len]
+                df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 50mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 50mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+                
+                df_final = pd.DataFrame()
+                total_y = []
+            
+            
+            
+           
+            for r in range(0,5):
+                # Define o tamanho da figura
+                total_y = []
+                df_final = pd.DataFrame
+                k = -1
+                
+                # Loop para plotar 16 gráficos
+                for i in range(0, 14):
+                    # Crie um subplot na posição i
+                    # plt.subplot(4, 4, i)
+                    # Carregue os dados do arquivo usando Pandas
+                    if i%2 == 0:
+                      k = k + 1
+                      file_path = elemento+f"\\Single ({160+14*r+i}).txt"
+                      df_single = pd.read_csv(file_path, delimiter="\t")
+                      eixo_x = df_single['Timestamp (s)']
+                      eixo_y = df_single['Current SMUb (A)']
+                      total_y.append(eixo_y.reset_index(drop=True))
+                      df_final = pd.concat(total_y, axis=1)
+                      #data = pd.read_csv(file_path,sep='\t')
+                      #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                     # wks.from_file(file_path)
+                      print(df_final.shape)
+                      print(file_path)
+                min_len = min(len(df_final), len(eixo_x))
+                df_final = df_final[:min_len]
+                eixo_x = eixo_x[:min_len]
+                df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 200mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 200mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
         
+                
+                df_final = pd.DataFrame()
+                total_y = []
         
-        df_final = pd.DataFrame()
-        total_y = []
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 == 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({16+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100ms Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100ms Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+                # Define o tamanho da figura
+                k = -1
+                # Loop para plotar 16 gráficos
+                for i in range(0, 14):
+                    # Crie um subplot na posição i
+                    # plt.subplot(4, 4, i)
+                    # Carregue os dados do arquivo usando Pandas
+                    if i%2 != 0:
+                      k = k + 1
+                
+                      file_path = elemento+f"\\Single ({160+14*r+i}).txt"
+                      df_single = pd.read_csv(file_path, delimiter="\t")
+                      eixo_x = df_single['Timestamp (s)']
+                      eixo_y = df_single['Current SMUb (A)']
+                      total_y.append(eixo_y.reset_index(drop=True))
+                      df_final = pd.concat(total_y, axis=1)
+                      #data = pd.read_csv(file_path,sep='\t')
+                      #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                     # wks.from_file(file_path)
+                      print(df_final.shape)
+                      print(file_path)
 
+                min_len = min(len(df_final), len(eixo_x))
+                df_final = df_final[:min_len]
+                eixo_x = eixo_x[:min_len]
+                df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 200mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 200mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+                
+                df_final = pd.DataFrame()
+                total_y = []
+           
+            
+           
+            for r in range(0,5):
+                # Define o tamanho da figura
+                total_y = []
+                df_final = pd.DataFrame
+                k = -1
+                
+                # Loop para plotar 16 gráficos
+                for i in range(0, 10):
+                    # Crie um subplot na posição i
+                    # plt.subplot(4, 4, i)
+                    # Carregue os dados do arquivo usando Pandas
+                    if i%2 == 0:
+                      k = k + 1
+                      file_path = elemento+f"\\Single ({230+10*r+i}).txt"
+                      df_single = pd.read_csv(file_path, delimiter="\t")
+                      eixo_x = df_single['Timestamp (s)']
+                      eixo_y = df_single['Current SMUb (A)']
+                      total_y.append(eixo_y.reset_index(drop=True))
+                      df_final = pd.concat(total_y, axis=1)
+                      #data = pd.read_csv(file_path,sep='\t')
+                      #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                     # wks.from_file(file_path)
+                      print(df_final.shape)
+                      print(file_path)
+                min_len = min(len(df_final), len(eixo_x))
+                df_final = df_final[:min_len]
+                eixo_x = eixo_x[:min_len]
+                df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 400mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 400mV {lista_nomes[r]} Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
         
-        df_final = pd.DataFrame()
-        total_y = []
+                
+                df_final = pd.DataFrame()
+                total_y = []
         
-        
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 != 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({16+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100ms Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 100ms Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+                # Define o tamanho da figura
+                k = -1
+                # Loop para plotar 16 gráficos
+                for i in range(0, 10):
+                    # Crie um subplot na posição i
+                    # plt.subplot(4, 4, i)
+                    # Carregue os dados do arquivo usando Pandas
+                    if i%2 != 0:
+                      k = k + 1
+                
+                      file_path = elemento+f"\\Single ({230+10*r+i}).txt"
+                      df_single = pd.read_csv(file_path, delimiter="\t")
+                      eixo_x = df_single['Timestamp (s)']
+                      eixo_y = df_single['Current SMUb (A)']
+                      total_y.append(eixo_y.reset_index(drop=True))
+                      df_final = pd.concat(total_y, axis=1)
+                      #data = pd.read_csv(file_path,sep='\t')
+                      #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
+                     # wks.from_file(file_path)
+                      print(df_final.shape)
+                      print(file_path)
 
-        
-        df_final = pd.DataFrame()
-        total_y = []
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        print('Pulso 10ms posiyivo') 
-
-        
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 == 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({0+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(len(eixo_x))
-              print(len(eixo_y))
-              print(file_path)
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10ms Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10ms Positivo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-        print(df_final.shape)
-
-        
-        
-        df_final = pd.DataFrame()
-        total_y = []
-        
-        print('Pulso 10ms negativo') 
-
-        # Define o tamanho da figura
-        k = -1
-        # Loop para plotar 16 gráficos
-        for i in range(0, 16):
-            # Crie um subplot na posição i
-            # plt.subplot(4, 4, i)
-            # Carregue os dados do arquivo usando Pandas
-            if i%2 != 0:
-              k = k + 1
-        
-              file_path = elemento+f"\\Single ({0+i}).txt"
-              df_single = pd.read_csv(file_path, delimiter="\t")
-              eixo_x = df_single['Timestamp (s)']
-              eixo_y = df_single['Current SMUb (A)']
-              total_y.append(eixo_y.reset_index(drop=True))
-              df_final = pd.concat(total_y, axis=1)
-              #data = pd.read_csv(file_path,sep='\t')
-              #data.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {64+i}.csv', index=False)
-             # wks.from_file(file_path)
-              print(file_path)
-
-       
-        df_final.insert(loc=0, column='Time',value= df_single['Timestamp (s)'].to_numpy())
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10ms Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 10ms Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-        print(df_final.shape)
-
-        
-        df_final = pd.DataFrame()
-        total_y = []
+                min_len = min(len(df_final), len(eixo_x))
+                df_final = df_final[:min_len]
+                eixo_x = eixo_x[:min_len]
+                df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 400mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse 400mV {lista_nomes[r]} Negativo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+                
+                df_final = pd.DataFrame()
+                total_y = []
+           
+            
+           
+            
+           
+            
+           
+            
+           
+            
+           
+            
+           
+            
+           
 
         pre = 'Single ('
         suf = ').txt'
