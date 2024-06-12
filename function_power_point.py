@@ -45,8 +45,7 @@ def power_point(output_pptx):
     # Salva a apresentação
     prs.save('Template\\presentation.pptx')
 
-    # Especifica a pasta com as imagens e o arquivo de saída
-    image_folder = 'C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\graficos_gerados\\Graficos Single Pulse'
+    
 
 
 
