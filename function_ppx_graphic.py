@@ -106,13 +106,16 @@ def ppx_graphic(nomes_pastas):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template='C:\\Users\\eduardo.neto\\Desktop\\Teste\\template_ppx.otp')
+        gp = op.new_graph(template='Template\\template_ppx.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
+        
         
         # Adiciona todas as colunas da planilha ao gráfico, assumindo que a primeira coluna é X e as outras são Y
         for col in range(1, wks.cols):
-            plot = gp[0].add_plot(wks, coly='Rat_first', colx='Period [s]', type = 202)  # colx=0 assume que a primeira coluna é X            
+            wks.cols_axis('nnnxye')
+            plot = gp[0].add_plot(wks, coly='Rat_first', colx='Period [s]',  colyerr='Rat_first.1', type = 202)  # colx=0 assume que a primeira coluna é X            
             plot.color = colors[col % len(colors)]
+
             plot.set_int('line.width', 2)
             plot.set_int('lineStyle', 1)
             plot.set_int('lineThickness', 1)
@@ -128,15 +131,12 @@ def ppx_graphic(nomes_pastas):
         gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
         gp[0].axis('x').title = f'Time, t (minutes)'
         gp[0].xlim=(0,None,None)
-        lgnd.set_int('fsize', 13)
-        lgnd.set_int('left',3500)
-        lgnd.set_int('top',1850)
         
         label = gp[0].label('text')
         label.text=f'Grafico '+result
         label.set_int('fsize', 18)
         label.set_int('left',2300)
-        label.set_int('top',350)
+        label.set_int('top',540)
         gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos PPX'+versionador+f'PPX {result}.png', width=800)
 
         

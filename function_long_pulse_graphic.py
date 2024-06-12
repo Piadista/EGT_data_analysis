@@ -175,7 +175,7 @@ def long_pulse_graphic(nomes_arquivos):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template='C:\\Users\\eduardo.neto\\Desktop\\Teste\\template_long_pulse.otp')
+        gp = op.new_graph(template='Template\\template_long_pulse.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
         
         
@@ -229,7 +229,7 @@ def long_pulse_graphic(nomes_arquivos):
         label.text=f'Grafico '+result
         label.set_int('fsize', 18)
         label.set_int('left',1500)
-        label.set_int('top',350)
+        label.set_int('top',540)
         gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Pulso Longo'+versionador+f'{result}.png', width=800)
         
     

@@ -17,6 +17,7 @@ from function_transfer_stability import *
 from function_stability import *
 from function_decaimento import *
 from function_retention_time_graphic import *
+from function_power_point import *
 import time
 import platform
 
@@ -206,6 +207,11 @@ def switch_single_pulse_graphic(option):
     
     
     
+def switch_power_point(option):
+    power_point(option)
+    
+    
+    
 # Função para análise dos arquivos em uma pasta
 def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
     # Lista para armazenar os nomes dos arquivos
@@ -261,6 +267,8 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         funcoes_executadas.append(switch_ppx_graphic)
     if funcoes_selecionadas["single_pulse_graphic"]:
         funcoes_executadas.append(switch_single_pulse_graphic)
+    if funcoes_selecionadas["power_point"]:
+        funcoes_executadas.append(switch_power_point)
 
     total_funcoes = len(funcoes_executadas)
     progresso = 0
@@ -312,6 +320,9 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         elif funcao == switch_single_pulse_graphic:
             funcao(nomes_pastas)
             progress_label.config(text="Gráfico Single Pulse Concluído")
+        elif funcao == switch_power_point:
+            funcao(nomes_pastas)
+            progress_label.config(text="Relatorio Concluído")
 
             
         else:
@@ -352,7 +363,8 @@ def openFile():
         "short_pulse_graphic": short_pulse_graphic_var.get(),
         "stability_graphic": stability_graphic_var.get(),
         "ppx_graphic": ppx_graphic_var.get(),
-        "single_pulse_graphic": single_pulse_graphic_var.get()
+        "single_pulse_graphic": single_pulse_graphic_var.get(),
+        "power_point": power_point_var.get()
     }
     analisar_arquivos_em_pasta(filepath, funcoes_selecionadas)
 
@@ -399,6 +411,7 @@ short_pulse_graphic_var = BooleanVar()
 stability_graphic_var = BooleanVar()
 ppx_graphic_var = BooleanVar()
 single_pulse_graphic_var = BooleanVar()
+power_point_var = BooleanVar()
 
 
 # Função chamada quando o botão "Todos" é clicado
@@ -418,6 +431,7 @@ def selecionar_todos():
     stability_graphic_var.set(True)
     ppx_graphic_var.set(True)
     single_pulse_graphic_var.set(True)
+    power_point_var.set(True)
 
 
 
@@ -457,7 +471,7 @@ check_long_pulse.place(x=400, y=230)
 check_long_pulse = ctk.CTkCheckBox(window, text="Decaimento", variable=decaimento_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=400, y=260)
 
-check_long_pulse = ctk.CTkCheckBox(window, text="Retention Time Graphic", variable=retention_time_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
+check_long_pulse = ctk.CTkCheckBox(window, text="Transfer Retention Time Graphic", variable=retention_time_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=600, y=20)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Long Pulse Graphic", variable=long_pulse_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
@@ -474,6 +488,9 @@ check_long_pulse.place(x=600, y=140)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Single Pulse Graphic", variable=single_pulse_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=600, y=170)
+
+check_long_pulse = ctk.CTkCheckBox(window, text="Relatorio", variable=power_point_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
+check_long_pulse.place(x=850, y=20)
 
 # Criar o botão para escolher o arquivo
 button = ctk.CTkButton(window, text="Escolher Arquivo", command=openFile, bg_color="#D2691E", fg_color="#D2691E", hover_color="gray", font=(("Arial Bold"), 15))

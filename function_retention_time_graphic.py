@@ -142,7 +142,7 @@ def retention_time_graphic(nomes_arquivos):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template='C:\\Users\\eduardo.neto\\Desktop\\Teste\\template_transfer_retention_time.otp')
+        gp = op.new_graph(template='Template\\template_transfer_retention_time.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
         
         # Adiciona todas as colunas da planilha ao gráfico, assumindo que a primeira coluna é X e as outras são Y
@@ -174,7 +174,7 @@ def retention_time_graphic(nomes_arquivos):
         label.text=f'Grafico '+result
         label.set_int('fsize', 18)
         label.set_int('left',1500)
-        label.set_int('top',350)
+        label.set_int('top',540)
         gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Transfer Tempo de Retencao'+versionador+f'{result}.png', width=800)
 
     

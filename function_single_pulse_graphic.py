@@ -57,7 +57,7 @@ def single_pulse_graphic(nomes_pastas):
         # Cria gráficos para cada planilha
         for i, wks in enumerate(wb):
             # Cria um novo gráfico
-            gp = op.new_graph(template='C:\\Users\\eduardo.neto\\Desktop\\Teste\\template_single_pulse.otp')
+            gp = op.new_graph(template='Template\\template_single_pulse.otp')
             graphs.append(gp)  # Armazena a referência ao gráfico
             
             
@@ -118,12 +118,12 @@ def single_pulse_graphic(nomes_pastas):
             
             
             lgnd.set_int('fsize', 12)
-            lgnd.set_int('top',700)
+            lgnd.set_int('top',1100)
             label = gl_1.label('text')
             label.text=f'Grafico '+result
-            label.set_int('fsize', 18)
-            label.set_int('left',1300)
-            label.set_int('top',350)
+            label.set_int('fsize', 15)
+            label.set_int('left',1200)
+            label.set_int('top',540)
             gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Single Pulse'+versionador+f'{result}.png', width=800)
             
         
