@@ -3,7 +3,7 @@ from pptx import Presentation
 from pptx.util import Inches, Pt
 
 # Função para criar a apresentação de slides
-def power_point(image_folder, output_pptx):
+def power_point(output_pptx):
     # Cria uma apresentação vazia
     prs = Presentation()
     
@@ -20,7 +20,7 @@ def power_point(image_folder, output_pptx):
     margin_top = Inches(0.8)
     horizontal_spacing = Inches(0.05)
     vertical_spacing = Inches(0.05)
-    
+    image_folder='C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\graficos_gerados\\Graficos Single Pulse'
     # Lista todas as imagens na pasta especificada
     images = [f for f in os.listdir(image_folder) if f.endswith(('png', 'jpg', 'jpeg'))]
     
@@ -43,12 +43,10 @@ def power_point(image_folder, output_pptx):
                 slide.shapes.add_picture(img_path, left, top, width=img_width, height=img_height)
     
     # Salva a apresentação
-    prs.save(output_pptx)
+    prs.save('Template\\presentation.pptx')
 
-# Especifica a pasta com as imagens e o arquivo de saída
-image_folder = 'C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\graficos_gerados\\Graficos Single Pulse'
-output_pptx = 'Template\\presentation.pptx'
+    # Especifica a pasta com as imagens e o arquivo de saída
+    image_folder = 'C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\graficos_gerados\\Graficos Single Pulse'
 
-# Cria a apresentação
-power_point(image_folder, output_pptx)
+
 
