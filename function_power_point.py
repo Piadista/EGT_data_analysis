@@ -77,6 +77,7 @@ def power_point(output_pptx):
     
 
     
+<<<<<<< HEAD
 
     # Lista de arquivos na pasta
     files = [f for f in os.listdir(image_folder) if os.path.isfile(os.path.join(image_folder, f))]
@@ -118,6 +119,8 @@ def power_point(output_pptx):
 
 
     
+=======
+>>>>>>> f556b472c18a9a0adbac58ba0cdac3da5313434e
 
 
 
