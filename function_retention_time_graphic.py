@@ -142,7 +142,7 @@ def retention_time_graphic(nomes_arquivos):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template='Template\\template_transfer_retention_time.otp')
+        gp = op.new_graph(template=current_directory+versionador+'Template'+versionador+'template_transfer_retention_time.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
         
         # Adiciona todas as colunas da planilha ao gráfico, assumindo que a primeira coluna é X e as outras são Y
@@ -150,7 +150,7 @@ def retention_time_graphic(nomes_arquivos):
             plot = gp[0].add_plot(wks, coly=col, colx=0, type=201)  # colx=0 assume que a primeira coluna é X
             plot.color = colors[col % len(colors)]
             plot.set_int('symbol.size', 6)
-            plot.set_str('symbol.shape', 'Circle')  # Set marker symbol to circle
+            # Set marker symbol to circle
             plot.set_int('line.width', 1)
             plot.set_int('lineStyle', 1)
             plot.set_int('lineThickness', 3)

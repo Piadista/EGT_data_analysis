@@ -38,7 +38,7 @@ def ppx_graphic(nomes_pastas):
     type_ppx = tipos_ppx['Type']
     electrolyte_ppx = tipos_ppx['Electrolyte']
     std_ppx = tipos_ppx['Potential [V]']
-    period_ppx = tipos_ppx['Period [s]']
+    period_ppx = tipos_ppx['Period [s]'] - 0.1
     rat_first = tipos_ppx['Rat_first']
     rat_first_std = tipos_ppx.iloc[:, 9]
 
@@ -106,7 +106,7 @@ def ppx_graphic(nomes_pastas):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template='Template\\template_ppx.otp')
+        gp = op.new_graph(template=current_directory+versionador+'Template'+versionador+'template_ppx.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
         
         
@@ -130,7 +130,6 @@ def ppx_graphic(nomes_pastas):
         
         gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
         gp[0].axis('x').title = f'Time, t (minutes)'
-        gp[0].xlim=(0,None,None)
         
         label = gp[0].label('text')
         label.text=f'Grafico '+result

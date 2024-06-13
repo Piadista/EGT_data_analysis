@@ -57,7 +57,7 @@ def single_pulse_graphic(nomes_pastas):
         # Cria gráficos para cada planilha
         for i, wks in enumerate(wb):
             # Cria um novo gráfico
-            gp = op.new_graph(template='Template\\template_single_pulse.otp')
+            gp = op.new_graph(template=current_directory+versionador+'Template'+versionador+'template_single_pulse.otp')
             graphs.append(gp)  # Armazena a referência ao gráfico
             
             
@@ -68,9 +68,9 @@ def single_pulse_graphic(nomes_pastas):
                 gl_1 = gp[0]
                 plot = gl_1.add_plot(wks, coly=col, colx=0)  # colx=0 assume que a primeira coluna é X
                 plot.color = colors[col % len(colors)]
-                plot.set_int('line.width', 1)
+                plot.set_int('line.width', 2)
                 plot.set_int('lineStyle', 1)
-                plot.set_int('lineThickness', 1)
+                plot.set_int('lineThickness', 2)
                 gl_1.rescale()
                 
                 if '10ms' in file_names[i]:
@@ -103,7 +103,7 @@ def single_pulse_graphic(nomes_pastas):
             if '200mV' in file_names[i]:
                 lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V\n\l(7) |0.7| V'
             elif '400mV' in file_names[i]:
-                lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V'
+                lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V'
             else:
                 lgnd.text=f'\l(1) |0.1| V\n\l(2) |0.2| V\n\l(3) |0.3| V\n\l(4) |0.4| V\n\l(5) |0.5| V\n\l(6) |0.6| V\n\l(7) |0.7| V\n\l(8) |0.8| V'
             gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
@@ -117,7 +117,7 @@ def single_pulse_graphic(nomes_pastas):
                 lgnd.set_int('left',4000)
             
             
-            lgnd.set_int('fsize', 12)
+            lgnd.set_int('fsize', 20)
             lgnd.set_int('top',1100)
             label = gl_1.label('text')
             label.text=f'Grafico '+result
