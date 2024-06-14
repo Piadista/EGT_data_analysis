@@ -346,7 +346,7 @@ def analise_decaimento(nomes_pastas):
                 eixo_x = eixo_x[:min_len]
                 df_final.insert(loc=0, column='Time',value= eixo_x.to_numpy())
                 df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito} 400mV_{lista_nomes[r]} Negativo.csv', index=False)
-                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito} 400mV_{lista_nomes[r]} Negativo.csv', index=False)
+                df_final.to_csv('dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Single Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito} 400mV_{lista_nomes[r]} Negativo.txt', index=False)
                 
                 df_final = pd.DataFrame()
                 total_y = []

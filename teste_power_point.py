@@ -67,7 +67,7 @@ for image in images:
 # Adiciona slides para cada grupo de gráficos
 for prefix, graficos in grupos.items():
     # Adiciona um slide vazio
-    slide_layout = prs.slide_layouts[6]  # Layout 6 é um slide vazio
+    slide_layout = prs.slide_layouts[10]  # Layout 6 é um slide vazio
     slide = prs.slides.add_slide(slide_layout)
 
     # Adiciona título ao slide

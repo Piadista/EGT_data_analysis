@@ -83,7 +83,7 @@ def single_pulse_graphic(nomes_pastas):
                 if '10s' in file_names[i]:
                     gp[0].xlim = (10, 30, None)
                 if '40s' in file_names[i]:
-                    gp[0].xlim = (0, 110, None)
+                    gp[0].xlim = (0, 150, None)
                 
                 
                
@@ -98,6 +98,10 @@ def single_pulse_graphic(nomes_pastas):
             
             # Select the part up to the first occurrence of the character
             result = parts[0]
+            
+            part = parts[0].split('_')
+            
+            texto_graf = part[0] + ' ' + part[1]
             lgnd = gp[0].label('Legend')
             
             if '200mV' in file_names[i]:
@@ -110,20 +114,22 @@ def single_pulse_graphic(nomes_pastas):
             gp[0].axis('x').title = f'Time, t (seconds)'
             
             if '40s' in file_names[i]:
-                lgnd.set_int('left',4500)
+                lgnd.set_int('left',5000)
             if '10s' in file_names[i]:
                 lgnd.set_int('left',1500)
             else:
                 lgnd.set_int('left',4000)
             
             
-            lgnd.set_int('fsize', 20)
+            lgnd.set_int('fsize', 16)
             lgnd.set_int('top',1100)
             label = gl_1.label('text')
-            label.text=f'Grafico '+result
-            label.set_int('fsize', 15)
-            label.set_int('left',1200)
-            label.set_int('top',540)
+            label.text=f'Grafico '+texto_graf
+            label.set_int('fsize', 18)
+            label.set_int('left',500)
+            label.set_int('top',450)
+            # Definir a fonte em negrito
+            #label.set_str('font', 'Bold')
             gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Single Pulse'+versionador+f'{result}.png', width=800)
             
         
