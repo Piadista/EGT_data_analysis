@@ -221,15 +221,15 @@ def long_pulse_graphic(nomes_arquivos):
         gp[1].axis('y').title = f'Source-drain current, Ids (µA)'
         gp[1].axis('x').title = f'Time, t (minutes)'
         gp[0].xlim=(0,None,None)
-        lgnd.set_int('fsize', 13)
-        lgnd.set_int('left',1400)
-        lgnd.set_int('top',850)
+        lgnd.set_int('fsize', 12)
+        lgnd.set_int('left',1350)
+        lgnd.set_int('top',950)
         
         label = gl_1.label('text')
         label.text=f'Grafico '+result
         label.set_int('fsize', 18)
-        label.set_int('left',1500)
-        label.set_int('top',540)
+        label.set_int('left',1250)
+        label.set_int('top',450)
         gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Pulso Longo'+versionador+f'{result}.png', width=800)
         
     

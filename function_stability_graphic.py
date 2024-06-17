@@ -95,7 +95,7 @@ def stability_graphic(nomes_pastas):
    
     
     # Lista de cores para diferenciação
-    colors = ['#335eff', '#ff5733', '#33ff57', '#ff33a1', '#ff9633', '#3380ff']
+    colors = ['#FF0000']
     
     # Lista para armazenar os gráficos
     graphs = []
@@ -103,34 +103,46 @@ def stability_graphic(nomes_pastas):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template='Origin')
+        gp = op.new_graph(template=current_directory+versionador+'Template'+versionador+'pipoca.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
         
         # Adiciona todas as colunas da planilha ao gráfico, assumindo que a primeira coluna é X e as outras são Y
         for col in range(1, wks.cols):
-            
+            wks.cols_axis('nnnnnxyn')
 
-            plot = gp[0].add_plot(wks, coly='IDSdep (10sp 30sd) [A]', colx='Pulse #')  # colx=0 assume que a primeira coluna é X
+
+            plot = gp[0].add_plot(wks, coly='IDSdep (10sp 30sd) [A]', colx='Pulse #',type=202)  # colx=0 assume que a primeira coluna é X
             # Adicione barras de erro
-            plot.color = colors[col % len(colors)]
+            plot.color = colors[0]
             plot.set_int('line.width', 2)
             plot.set_int('lineStyle', 1)
             plot.set_int('lineThickness', 6)
-        
-        gp[0].rescale()
+            gp[0].rescale()
+            
         # Split the string at the specified character
         character = '.'
         parts = file_names[i].split(character)
 
         # Select the part up to the first occurrence of the character
         result = parts[0]+'.'+parts[1]
+        
         lgnd = gp[0].label('Legend')
-        lgnd.text=f'Grafico '+result
+        lgnd.text=f'\\l(1) 0.8 V'
+        lgnd.set_int('fsize', 13)
+        lgnd.set_int('left',3500)
+        lgnd.set_int('top',1850)
+        
+        
+        gp[0].axis('y').title = f'IDSdep (10sp 30sd) [A]'
+        gp[0].axis('x').title = f'Pulse #'
         gp[0].xlim=(0,None,None)
-        lgnd.set_int('fsize', 20)
-        lgnd.set_int('left',2200)
-        lgnd.set_int('top',700)
-        lgnd.set_int('showframe',0)
+        
+        
+        label = gp[0].label('text')
+        label.text=f'Grafico '+result+ ' V'
+        label.set_int('fsize', 18)
+        label.set_int('left',1600)
+        label.set_int('top',450)
         gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Estabilidade'+versionador+f'Stability {result} V.png', width=800)
 
         

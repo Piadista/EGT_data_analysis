@@ -170,8 +170,8 @@ def short_pulse_graphic(nomes_arquivos):
         label = gp[0].label('text')
         label.text=f'Grafico '+result
         label.set_int('fsize', 18)
-        label.set_int('left',1500)
-        label.set_int('top',540)
+        label.set_int('left',1250)
+        label.set_int('top',450)
         gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Graficos Pulso Curto'+versionador+f'{result}.png', width=800)
 
     
