@@ -435,7 +435,24 @@ def analise_decaimento(nomes_pastas):
     # Export dataframe into a .txt file
     new_dataframe.to_csv('dados_gerados'+versionador+'data_Single_means.txt', sep='\t', index=False)
     new_dataframe.to_csv('dados_gerados'+versionador+'data_Single_means.csv', index=False)
+    
+    # Caminho para a pasta com as imagens
+    folder_path = 'C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\dados_gerados\\data_Single_means.txt'
 
+
+
+    # Criação do DataFrame
+    df = pd.read_csv(folder_path, sep='\t')
+
+    grupo_multi = df.groupby(['Type', 'Electrolyte', 'Width [s]', 'VDS [V]'])
+
+    print("\nGrupos:")
+    i = 0
+    for (tipo, electrolyte, width, vds), grupo in grupo_multi:
+        i = i + 1
+        print(f"\nGrupo: tipo={tipo}, electrolyte={electrolyte} ,width={width}, vds={vds}")
+        print(grupo)
+        grupo.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Single Pulse'+versionador+f'Grafico DelIDS {tipo} {electrolyte} {width} {vds}.csv'), index=False)
 
 
 ##########################################################FIM DECAIMENTO################################################################################################################

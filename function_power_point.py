@@ -46,7 +46,7 @@ def power_point(output_pptx):
     title = slide.shapes.title
     subtitle = slide.placeholders[1]
 
-    title.text = "Relatório"
+    title.text = "Single Pulse"
     subtitle.text = "Dados e Gráficos"
 
     # Aumenta o tamanho da fonte do título
