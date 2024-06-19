@@ -452,8 +452,8 @@ def analise_decaimento(nomes_pastas):
         i = i + 1
         print(f"\nGrupo: tipo={tipo}, electrolyte={electrolyte} ,width={width}, vds={vds}")
         print(grupo)
-        grupo.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Single Pulse'+versionador+'Dados Del Single Pulse'+versionador+f'Single Pulse DelIDS {tipo} {electrolyte} {width} s {vds} V.csv'), index=False)
-        grupo.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Single Pulse'+versionador+'Dados Del Single Pulse'+versionador+f'Single Pulse DelIDS {tipo} {electrolyte} {width} s {vds} V.txt'), index=False)
+        grupo.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Single Pulse'+versionador+'Dados Del Single Pulse'+versionador+f'Single Pulse DelIDS {tipo} {electrolyte} {vds} V_{width} s.csv'), index=False)
+        grupo.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Single Pulse'+versionador+'Dados Del Single Pulse'+versionador+f'Single Pulse DelIDS {tipo} {electrolyte} {vds} V_{width} s.txt'), index=False)
 
 
 ##########################################################FIM DECAIMENTO################################################################################################################
