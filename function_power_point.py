@@ -438,14 +438,14 @@ def power_point(output_pptx):
     img_height_2 = Pt(img_height_px_2 / 96 * 72)
     
     # Define a posição inicial das imagens e o espaço entre elas
-    margin_left_1 = Inches(1.4)
-    margin_top_1 = Inches(2)
+    margin_left_1 = Inches(1.5)
+    margin_top_1 = Inches(0.8)
     horizontal_spacing_1 = Inches(0.01)
     vertical_spacing_1 = Inches(0.000)
     
     
-    margin_left_2 = Inches(0.1)
-    margin_top_2 = Inches(2)
+    margin_left_2 = Inches(0.2)
+    margin_top_2 = Inches(0.8)
     horizontal_spacing_2 = Inches(0.01)
     vertical_spacing_2 = Inches(0.01)
     
@@ -535,8 +535,6 @@ def power_point(output_pptx):
         # Adiciona um slide vazio
         slide_layout = prs.slide_layouts[6]  # Layout 6 é um slide vazio
         slide1 = prs.slides.add_slide(slide_layout)
-        slide2 = prs.slides.add_slide(slide_layout)
-        pic = slide2.shapes.add_picture(img_caminho, left_img, top_img, img_width_img, img_height_img)
         pic = slide1.shapes.add_picture(img_caminho, left_img, top_img, img_width_img, img_height_img)
 
         # Adiciona título ao slide
@@ -572,95 +570,82 @@ def power_point(output_pptx):
            
             
             
-            if ('0.01 s' in grafico or '0.1 s' in grafico) and grafico.endswith(('png', 'jpg', 'jpeg')):
-                # Adiciona a imagem ao slide
-                # Calcula a posição da imagem
-                if '0.01 s' in grafico:
-                    col = 0
-                    row = 0
-                    left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
-                    top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
-                    print(left)
-                    print(top)
-                    img_path = os.path.join(image_folder, grafico)
-                    print(image_folder)
-                    print(grafico)
-                    if os.path.exists(img_path):  # Verifica se o arquivo existe
-                        slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                    else:
-                        print(f"Arquivo não encontrado: {img_path}")
-                    
-                elif '0.1 s' in grafico:
-                    col = 1
-                    row = 0
-                    left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
-                    top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
-                    print(left)
-                    print(top)
-                    img_path = os.path.join(image_folder, grafico)
-                    print(image_folder)
-                    print(grafico)
-                    if os.path.exists(img_path):  # Verifica se o arquivo existe
-                        slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                    else:
-                        print(f"Arquivo não encontrado: {img_path}")
+            
+            if '0.01 s' in grafico:
+                col = 0
+                row = 0
+                left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
+                top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
+                print(left)
+                print(top)
+                img_path = os.path.join(image_folder, grafico)
+                print(image_folder)
+                print(grafico)
+                if os.path.exists(img_path):  # Verifica se o arquivo existe
+                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                else:
+                    print(f"Arquivo não encontrado: {img_path}")
                 
-                
-                
-                
-                
-                
-                
-                
-            elif ('1.0 s' in grafico or '10.0 s' in grafico or '40.0 s' in grafico) and grafico.endswith(('png', 'jpg', 'jpeg')):
-                # Adiciona a imagem ao slide
-                # Calcula a posição da imagem
-                
+            elif '0.1 s' in grafico:
+                col = 1
+                row = 0
+                left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
+                top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
+                print(left)
+                print(top)
+                img_path = os.path.join(image_folder, grafico)
+                print(image_folder)
+                print(grafico)
+                if os.path.exists(img_path):  # Verifica se o arquivo existe
+                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                else:
+                    print(f"Arquivo não encontrado: {img_path}")
+            
 
+            
+            elif '1.0 s' in grafico:
                 
-                if '1.0 s' in grafico:
-                    
-                    col = 0
-                    row = 0
-                    left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
-                    top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
-                    print(left)
-                    print(top)
-                    img_path = os.path.join(image_folder, grafico)
-                    print(image_folder)
-                    print(grafico)
-                    if os.path.exists(img_path):  # Verifica se o arquivo existe
-                        slide2.shapes.add_picture(img_path, left, top, width=img_width_2, height=img_height_2)
-                    else:
-                        print(f"Arquivo não encontrado: {img_path}")
-                elif '10.0 s' in grafico:
-                    col = 1
-                    row = 0
-                    left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
-                    top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
-                    print(left)
-                    print(top)
-                    img_path = os.path.join(image_folder, grafico)
-                    print(image_folder)
-                    print(grafico)
-                    if os.path.exists(img_path):  # Verifica se o arquivo existe
-                        slide2.shapes.add_picture(img_path, left, top, width=img_width_2, height=img_height_2)
-                    else:
-                        print(f"Arquivo não encontrado: {img_path}")
-                elif '40.0 s' in grafico:
-                    col = 2
-                    row = 0
-                    left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
-                    top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
-                    print(left)
-                    print(top)
-                    img_path = os.path.join(image_folder, grafico)
-                    print(image_folder)
-                    print(grafico)
-                    if os.path.exists(img_path):  # Verifica se o arquivo existe
-                        slide2.shapes.add_picture(img_path, left, top, width=img_width_2, height=img_height_2)
-                    else:
-                        print(f"Arquivo não encontrado: {img_path}")
+                col = 0
+                row = 1
+                left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
+                top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
+                print(left)
+                print(top)
+                img_path = os.path.join(image_folder, grafico)
+                print(image_folder)
+                print(grafico)
+                if os.path.exists(img_path):  # Verifica se o arquivo existe
+                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                else:
+                    print(f"Arquivo não encontrado: {img_path}")
+            elif '10.0 s' in grafico:
+                col = 1
+                row = 1
+                left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
+                top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
+                print(left)
+                print(top)
+                img_path = os.path.join(image_folder, grafico)
+                print(image_folder)
+                print(grafico)
+                if os.path.exists(img_path):  # Verifica se o arquivo existe
+                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                else:
+                    print(f"Arquivo não encontrado: {img_path}")
+            elif '40.0 s' in grafico:
+                col = 2
+                row = 1
+                left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
+                top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
+                print(left)
+                print(top)
+                img_path = os.path.join(image_folder, grafico)
+                print(image_folder)
+                print(grafico)
+                if os.path.exists(img_path):  # Verifica se o arquivo existe
+                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                else:
+                    print(f"Arquivo não encontrado: {img_path}")
                 
     
     

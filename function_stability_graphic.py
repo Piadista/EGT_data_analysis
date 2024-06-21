@@ -103,7 +103,7 @@ def stability_graphic(nomes_pastas):
     # Cria gráficos para cada planilha
     for i, wks in enumerate(wb):
         # Cria um novo gráfico
-        gp = op.new_graph(template=current_directory+versionador+'Template'+versionador+'pipoca.otp')
+        gp = op.new_graph(template=current_directory+versionador+'Template'+versionador+'template_stability.otp')
         graphs.append(gp)  # Armazena a referência ao gráfico
         
         # Adiciona todas as colunas da planilha ao gráfico, assumindo que a primeira coluna é X e as outras são Y
