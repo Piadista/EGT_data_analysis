@@ -126,11 +126,7 @@ def stability_graphic(nomes_pastas):
         # Select the part up to the first occurrence of the character
         result = parts[0]+'.'+parts[1]
         
-        lgnd = gp[0].label('Legend')
-        lgnd.text=f'\\l(1) 0.8 V'
-        lgnd.set_int('fsize', 13)
-        lgnd.set_int('left',3500)
-        lgnd.set_int('top',1850)
+       
         
         
         gp[0].axis('y').title = f'IDSdep (10sp 30sd) [A]'

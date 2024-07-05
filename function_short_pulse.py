@@ -72,7 +72,15 @@ def pola_values_calc(df):
     values = np.append(values, aux)
     aux = (df[(df["Timestamp (s)"] >= 75) & (df["Timestamp (s)"] <= 85)])['Current SMUA (A)'].std()
     values = np.append(values, aux)
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return values
 
 
@@ -98,6 +106,9 @@ def short_pulse__extractor_values(df, name):
     values = np.append(values, np.array([('stdIGS_del_' + name, aux[11])], dtype=values.dtype))
     values = np.append(values, np.array([('IGS_dur_' + name, aux[12])], dtype=values.dtype))
     values = np.append(values, np.array([('stdIGS_dur_' + name, aux[13])], dtype=values.dtype))
+    
+   
+    
 
     if name == 'pos':
         values = np.append(values,
@@ -185,11 +196,34 @@ def analise_short_pulse(nomes_arquivos):
                 # Relevant parameters positive
                 values_pos = short_pulse__extractor_values(df_pos, 'pos')
                 pulsos.append(elemento)
+                
+                
                 tipo_chip = get_type(elemento)
                 valor_chip = get_chip(elemento)
                 valor_disp = get_disp(elemento)
                 tipo_eletrolito = get_eletrolito(elemento)
+                print(tipo_chip, valor_chip, valor_disp, tipo_eletrolito)
+                aux_min = (df_pos[(df_pos["Timestamp (s)"] >= 100) & (df_pos["Timestamp (s)"] <= 140)])['Current SMUb (A)'].min()
+                aux_max = (df_pos[(df_pos["Timestamp (s)"] >= 100) & (df_pos["Timestamp (s)"] <= 140)])['Current SMUb (A)'].max()
+                aux_min2 = (df_pos[(df_pos["Timestamp (s)"] >= 60.2) & (df_pos["Timestamp (s)"] <= 100)])['Current SMUb (A)'].mean()
 
+                
+                
+                print(f'Aux aux min {aux_min}')
+                print(f'Aux aux max {aux_max}')
+                
+                aus = aux_max/aux_min
+                print(f'Aux ratio {aus}')
+                
+                aus = aux_max - aux_min
+                print(f'Aux dif {aus}')
+                
+                aus = aux_max/aux_min2
+                print(f'Aux ratio mid {aus}')
+                
+                
+                
+                
 
         # Create a dictionary with the data for the new row
         new_row = {'Type': tipo_chip,'Chip': valor_chip,'Disp': valor_disp, 'Electrolyte': tipo_eletrolito, 'IDSmed (10s - 160s) [A]': aux(values_short, 'meanIDS'), 'Std IDSmed [A]': aux(values_short, 'stdIDS'),
