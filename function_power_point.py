@@ -688,7 +688,7 @@ def power_point(output_pptx):
     title = slide.shapes.title
     subtitle = slide.placeholders[1]
 
-    title.text = "Single Pulse Del IDS"
+    title.text = "Estabilidade"
     subtitle.text = "Dados e Gráficos"
 
     # Aumenta o tamanho da fonte do título
@@ -764,7 +764,7 @@ def power_point(output_pptx):
     
 
     # Atualize este caminho conforme necessário
-    image_folder = os.path.join(current_directory, 'C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\graficos_gerados\\Graficos Single Pulse\\Graficos Estabilidade')
+    image_folder = os.path.join(current_directory, 'C:\\Users\\eduardo.neto\\Desktop\\programa_v5\\graficos_gerados\\Graficos Estabilidade')
     
     # Lista todas as imagens na pasta especificada
     images = [f for f in os.listdir(image_folder) if f.endswith(('png', 'jpg', 'jpeg'))]
@@ -806,7 +806,7 @@ def power_point(output_pptx):
         novo_dicionario[chave_principal] = valor['Filename']
     
     # Imprimindo o novo dicionário
-    del novo_dicionario['Grafico Del Single Pulse.opju']
+    del novo_dicionario['Grafico Estabilidade.opju']
     print(novo_dicionario)     
     
     
@@ -853,7 +853,7 @@ def power_point(output_pptx):
             
             
             
-            if '0.01 s' in grafico:
+            if '0.8 V' in grafico:
                 col = 0
                 row = 0
                 left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
@@ -868,7 +868,7 @@ def power_point(output_pptx):
                 else:
                     print(f"Arquivo não encontrado: {img_path}")
                 
-            elif '0.1 s' in grafico:
+            elif '0.1 V' in grafico:
                 col = 1
                 row = 0
                 left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
@@ -885,49 +885,6 @@ def power_point(output_pptx):
             
 
             
-            elif '1.0 s' in grafico:
-                
-                col = 0
-                row = 1
-                left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
-                top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
-                print(left)
-                print(top)
-                img_path = os.path.join(image_folder, grafico)
-                print(image_folder)
-                print(grafico)
-                if os.path.exists(img_path):  # Verifica se o arquivo existe
-                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                else:
-                    print(f"Arquivo não encontrado: {img_path}")
-            elif '10.0 s' in grafico:
-                col = 1
-                row = 1
-                left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
-                top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
-                print(left)
-                print(top)
-                img_path = os.path.join(image_folder, grafico)
-                print(image_folder)
-                print(grafico)
-                if os.path.exists(img_path):  # Verifica se o arquivo existe
-                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                else:
-                    print(f"Arquivo não encontrado: {img_path}")
-            elif '40.0 s' in grafico:
-                col = 2
-                row = 1
-                left = margin_left_2 + col * (img_width_2 + horizontal_spacing_2)
-                top = margin_top_2 + row * (img_height_2 + vertical_spacing_2)
-                print(left)
-                print(top)
-                img_path = os.path.join(image_folder, grafico)
-                print(image_folder)
-                print(grafico)
-                if os.path.exists(img_path):  # Verifica se o arquivo existe
-                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                else:
-                    print(f"Arquivo não encontrado: {img_path}")
                 
     
     
