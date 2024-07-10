@@ -706,8 +706,8 @@ def power_point(output_pptx):
     # Define o tamanho das imagens em pixels (exemplo: 300x200 pixels)
     
     
-    img_width_px_1 = 320
-    img_height_px_1 = 320
+    img_width_px_1 = 500
+    img_height_px_1 = 500
     
     img_width_px_2 = 320
     img_height_px_2 = 320
@@ -720,9 +720,9 @@ def power_point(output_pptx):
     img_height_2 = Pt(img_height_px_2 / 96 * 72)
     
     # Define a posição inicial das imagens e o espaço entre elas
-    margin_left_1 = Inches(1.5)
-    margin_top_1 = Inches(0.8)
-    horizontal_spacing_1 = Inches(0.01)
+    margin_left_1 = Inches(0.0)
+    margin_top_1 = Inches(1.2)
+    horizontal_spacing_1 = Inches(0.0)
     vertical_spacing_1 = Inches(0.000)
     
     
@@ -778,13 +778,14 @@ def power_point(output_pptx):
 
     # Criação do DataFrame
     df = pd.DataFrame(files, columns=['Filename'])
+    df = df.drop(0).reset_index(drop=True)
 
-
-
+    print(df)
     # Extraindo o prefixo (parte antes do '_') para usar como chave de agrupamento
-    df['Group'] = df['Filename'].apply(lambda x: x.split('_')[0])
+    df['Group'] = df['Filename'].apply(lambda x: x.split('_')[1])
+    print(df)
 
-
+    
     # Agrupando por 'Group'
     grouped = df.groupby('Group')
     # Realizando o agrupamento
@@ -805,9 +806,7 @@ def power_point(output_pptx):
     for chave_principal, valor in combined_dict.items():
         novo_dicionario[chave_principal] = valor['Filename']
     
-    # Imprimindo o novo dicionário
-    del novo_dicionario['Grafico Estabilidade.opju']
-    print(novo_dicionario)     
+    print(novo_dicionario)
     
     
     
@@ -826,62 +825,94 @@ def power_point(output_pptx):
         if (title_shape1 is None) or (title_shape2 is None):
             # Se não houver espaço reservado para título, crie um textbox para o título
             title_shape1 = slide1.shapes.add_textbox(Inches(0.5), Inches(0.2), Inches(9), Inches(1))
-            title_shape2 = slide2.shapes.add_textbox(Inches(0.5), Inches(0.2), Inches(9), Inches(1))
 
             text_frame1 = title_shape1.text_frame
-            text_frame2 = title_shape2.text_frame
 
             text_frame1.text = f"{prefix}"
-            text_frame2.text = f"{prefix}"
 
         else:
             title_shape1.text = f"{prefix}"
             text_frame1 = title_shape1.text_frame
-            title_shape2.text = f"{prefix}"
-            text_frame2 = title_shape2.text_frame
+           
     
         for paragraph in text_frame1.paragraphs:
             for run in paragraph.runs:
-                run.font.size = Pt(24)  # Tamanho da fonte do título do slide
+                run.font.size = Pt(36)  # Tamanho da fonte do título do slide
                 
-        for paragraph in text_frame2.paragraphs:
-            for run in paragraph.runs:
-                run.font.size = Pt(24)  # Tamanho da fonte do título do slide
+        
     
         for idx, grafico in enumerate(graficos):
            
             
             
             
-            if '0.8 V' in grafico:
-                col = 0
-                row = 0
-                left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
-                top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
-                print(left)
-                print(top)
-                img_path = os.path.join(image_folder, grafico)
-                print(image_folder)
-                print(grafico)
-                if os.path.exists(img_path):  # Verifica se o arquivo existe
-                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                else:
-                    print(f"Arquivo não encontrado: {img_path}")
+            if ('KCl' in grafico) and grafico.endswith(('png', 'jpg', 'jpeg')):
+                # Adiciona a imagem ao slide
+                # Calcula a posição da imagem
+                if ('0.8' in grafico):
+                    col = 0
+                    row = 0
+                    left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
+                    top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
+                    print(left)
+                    print(top)
+                    img_path = os.path.join(image_folder, grafico)
+                    print(image_folder)
+                    print(grafico)
+                    if os.path.exists(img_path):  # Verifica se o arquivo existe
+                        slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                    else:
+                        print(f"Arquivo não encontrado: {img_path}")
+                elif ('0.1' in grafico):
+                    col = 1
+                    row = 0
+                    left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
+                    top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
+                    print(left)
+                    print(top)
+                    img_path = os.path.join(image_folder, grafico)
+                    print(image_folder)
+                    print(grafico)
+                    if os.path.exists(img_path):  # Verifica se o arquivo existe
+                        slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                    else:
+                        print(f"Arquivo não encontrado: {img_path}")
+               
+            elif ('MgCl2' in grafico) and grafico.endswith(('png', 'jpg', 'jpeg')):
+                # Adiciona a imagem ao slide
+                # Calcula a posição da imagem
                 
-            elif '0.1 V' in grafico:
-                col = 1
-                row = 0
-                left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
-                top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
-                print(left)
-                print(top)
-                img_path = os.path.join(image_folder, grafico)
-                print(image_folder)
-                print(grafico)
-                if os.path.exists(img_path):  # Verifica se o arquivo existe
-                    slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
-                else:
-                    print(f"Arquivo não encontrado: {img_path}")
+
+                
+                if ('0.8' in grafico):
+                    col = 0
+                    row = 0
+                    left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
+                    top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
+                    print(left)
+                    print(top)
+                    img_path = os.path.join(image_folder, grafico)
+                    print(image_folder)
+                    print(grafico)
+                    if os.path.exists(img_path):  # Verifica se o arquivo existe
+                        slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                    else:
+                        print(f"Arquivo não encontrado: {img_path}")
+                elif ('0.1' in grafico):
+                    col = 1
+                    row = 0
+                    left = margin_left_1 + col * (img_width_1 + horizontal_spacing_1)
+                    top = margin_top_1 + row * (img_height_1 + vertical_spacing_1)
+                    print(left)
+                    print(top)
+                    img_path = os.path.join(image_folder, grafico)
+                    print(image_folder)
+                    print(grafico)
+                    if os.path.exists(img_path):  # Verifica se o arquivo existe
+                        slide1.shapes.add_picture(img_path, left, top, width=img_width_1, height=img_height_1)
+                    else:
+                        print(f"Arquivo não encontrado: {img_path}")
+                
             
 
             

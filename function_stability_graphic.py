@@ -70,7 +70,7 @@ def stability_graphic(nomes_pastas):
         electrolyte = str(chunks[i].iloc[0,3])
         potential = str(chunks[i].iloc[0,4])
         
-        chunk.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Estabilidade'+versionador+f'{tipo} Chip {chip} Disp {disp} {electrolyte} {potential}.txt'), index=False)
+        chunk.to_csv(os.path.join(f'dados_gerados'+versionador+f'Dados Estabilidade'+versionador+f'{tipo} Chip {chip} Disp {disp}_{electrolyte}_{potential}.txt'), index=False)
         print(f'Salvo chunk_{i}.csv')
 
         
@@ -127,7 +127,10 @@ def stability_graphic(nomes_pastas):
         result = parts[0]+'.'+parts[1]
         
        
-        
+        titulo = file_names[i].split('_')
+        titulo = titulo[0] + ' ' + titulo[1] + ' ' + titulo[2]
+        titulo = titulo.split('.')
+        titulo = titulo[0] + '.' + titulo[1]
         
         gp[0].axis('y').title = f'IDSdep (10sp 30sd) [A]'
         gp[0].axis('x').title = f'Pulse #'
@@ -135,7 +138,7 @@ def stability_graphic(nomes_pastas):
         
         
         label = gp[0].label('text')
-        label.text=f'Grafico '+result+ ' V'
+        label.text=f'Grafico '+titulo+ ' V'
         label.set_int('fsize', 18)
         label.set_int('left',1600)
         label.set_int('top',450)
