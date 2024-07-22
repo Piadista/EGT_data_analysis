@@ -23,6 +23,8 @@ def get_type(elemento):
         return "Bicamada"
     elif "bar" in elemento.lower():
         return "Bare"
+    elif "tri" in elemento.lower():
+        return "Tricamada"
 
 def get_chip(elemento):
     if versionador+'1'+versionador+'disp' in elemento.lower():
