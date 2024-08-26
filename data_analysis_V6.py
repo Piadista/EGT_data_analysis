@@ -16,7 +16,7 @@ from function_lgt_pulsed import *
 from function_transfer_stability import *
 from function_stability import *
 from function_decaimento import *
-from function_retention_time_graphic import *
+from function_transfer_retention_time_graphic import *
 from function_power_point import *
 import time
 import platform
@@ -33,12 +33,13 @@ sistema_operacional = platform.system()
 
 if sistema_operacional == "Windows":
     print("Você está usando o Windows.")
-    from function_retention_time_graphic import *
+    from function_transfer_retention_time_graphic import *
     from function_long_pulse_graphic import *
     from function_short_pulse_graphic import *
     from function_stability_graphic import *
     from function_ppx_graphic import *
     from function_single_pulse_graphic import *
+    from function_transconduct_graphic import *
     versionador = '\\'
 elif sistema_operacional == "Linux":
     print("Você está usando o Linux.")
@@ -120,6 +121,19 @@ sub_pasta_del_single_pulse = os.path.join('dados_gerados'+versionador+'Dados Sin
 
 # Cria a subpasta dentro da pasta principal
 os.makedirs(sub_pasta_del_single_pulse, exist_ok=True)
+
+# Especifica o caminho da subpasta
+sub_pasta_transconduct = os.path.join('dados_gerados', 'Dados Transcondutancia')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_transconduct, exist_ok=True)
+
+
+
+
+
+
+
     
 
 
@@ -174,7 +188,23 @@ sub_pasta_grafico_del_single_pulse = os.path.join('graficos_gerados'+versionador
 # Cria a subpasta dentro da pasta principal
 os.makedirs(sub_pasta_grafico_del_single_pulse, exist_ok=True)
 
+# Especifica o caminho da subpasta
+sub_pasta_grafico_transconduct= os.path.join('graficos_gerados', 'Graficos Transcondutancia')
 
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_transconduct, exist_ok=True)
+
+# Especifica o caminho da subpasta
+sub_pasta_grafico_absolut_transconduct = os.path.join('graficos_gerados'+versionador+'Graficos Transcondutancia', 'Grafico Transcondutancia Absoluta')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_absolut_transconduct, exist_ok=True)
+
+# Especifica o caminho da subpasta
+sub_pasta_grafico_igs = os.path.join('graficos_gerados', 'Grafico IGS')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_igs, exist_ok=True)
 
 
     
@@ -201,11 +231,12 @@ def switch_stability(option):
     analise_stability(option)
 def switch_decaimento(option):
     analise_decaimento(option)
+
     
     
 # Funções para escolha de qual parte do código rodar gráficos   
-def switch_retention_time_graphic(option):
-    retention_time_graphic(option)
+def switch_transfer_retention_time_graphic(option):
+    transfer_retention_time_graphic(option)
 def switch_long_pulse_graphic(option):
     long_pulse_graphic(option)
 def switch_short_pulse_graphic(option):
@@ -216,6 +247,8 @@ def switch_ppx_graphic(option):
     ppx_graphic(option)
 def switch_single_pulse_graphic(option):
     single_pulse_graphic(option)
+def switch_transconduct_graphic(option):
+    transconduct_graphic(option)
     
     
     
@@ -267,8 +300,8 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         funcoes_executadas.append(switch_stability)
     if funcoes_selecionadas["decaimento"]:
         funcoes_executadas.append(switch_decaimento)
-    if funcoes_selecionadas["retention_time_graphic"]:
-        funcoes_executadas.append(switch_retention_time_graphic)
+    if funcoes_selecionadas["transfer_retention_time_graphic"]:
+        funcoes_executadas.append(switch_transfer_retention_time_graphic)
     if funcoes_selecionadas["long_pulse_graphic"]:
         funcoes_executadas.append(switch_long_pulse_graphic)
     if funcoes_selecionadas["short_pulse_graphic"]:
@@ -279,6 +312,9 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         funcoes_executadas.append(switch_ppx_graphic)
     if funcoes_selecionadas["single_pulse_graphic"]:
         funcoes_executadas.append(switch_single_pulse_graphic)
+    if funcoes_selecionadas["transconduct_graphic"]:
+        funcoes_executadas.append(switch_transconduct_graphic)
+        
     if funcoes_selecionadas["power_point"]:
         funcoes_executadas.append(switch_power_point)
 
@@ -314,7 +350,7 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         elif funcao == switch_decaimento:
             funcao(nomes_pastas)
             progress_label.config(text="Decaimento Concluído")
-        elif funcao == switch_retention_time_graphic:
+        elif funcao == switch_transfer_retention_time_graphic:
             funcao(nomes_arquivos)
             progress_label.config(text="Gráfico Tempo de Retenção Concluído")
         elif funcao == switch_long_pulse_graphic:
@@ -332,6 +368,10 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         elif funcao == switch_single_pulse_graphic:
             funcao(nomes_pastas)
             progress_label.config(text="Gráfico Single Pulse Concluído")
+        elif funcao == switch_transconduct_graphic:
+            funcao(nomes_arquivos)
+            progress_label.config(text="Gráfico Transcondutancia Concluído")
+            
         elif funcao == switch_power_point:
             funcao(nomes_pastas)
             progress_label.config(text="Relatorio Concluído")
@@ -370,12 +410,13 @@ def openFile():
         "transfer_stability": transfer_stability_var.get(),
         "stability": stability_var.get(),
         "decaimento": decaimento_var.get(),
-        "retention_time_graphic": retention_time_graphic_var.get(),
+        "transfer_retention_time_graphic": transfer_retention_time_graphic_var.get(),
         "long_pulse_graphic": long_pulse_graphic_var.get(),
         "short_pulse_graphic": short_pulse_graphic_var.get(),
         "stability_graphic": stability_graphic_var.get(),
         "ppx_graphic": ppx_graphic_var.get(),
         "single_pulse_graphic": single_pulse_graphic_var.get(),
+        "transconduct_graphic": transconduct_graphic_var.get(), 
         "power_point": power_point_var.get()
     }
     analisar_arquivos_em_pasta(filepath, funcoes_selecionadas)
@@ -417,12 +458,14 @@ lgt_pulsed_var = BooleanVar()
 transfer_stability_var = BooleanVar()
 stability_var = BooleanVar()
 decaimento_var = BooleanVar()
-retention_time_graphic_var = BooleanVar()
+transfer_retention_time_graphic_var = BooleanVar()
 long_pulse_graphic_var = BooleanVar()
 short_pulse_graphic_var = BooleanVar()
 stability_graphic_var = BooleanVar()
 ppx_graphic_var = BooleanVar()
 single_pulse_graphic_var = BooleanVar()
+transconduct_graphic_var = BooleanVar()
+
 power_point_var = BooleanVar()
 
 
@@ -437,12 +480,14 @@ def selecionar_todos():
     transfer_stability_var.set(True)
     stability_var.set(True)
     decaimento_var.set(True)
-    retention_time_graphic_var.set(True)
+    transfer_retention_time_graphic_var.set(True)
     long_pulse_graphic_var.set(True)
     short_pulse_graphic_var.set(True)
     stability_graphic_var.set(True)
     ppx_graphic_var.set(True)
     single_pulse_graphic_var.set(True)
+    transconduct_graphic_var.set(True)
+    
     power_point_var.set(True)
 
 
@@ -483,7 +528,7 @@ check_long_pulse.place(x=400, y=230)
 check_long_pulse = ctk.CTkCheckBox(window, text="Decaimento", variable=decaimento_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=400, y=260)
 
-check_long_pulse = ctk.CTkCheckBox(window, text="Transfer Retention Time Graphic", variable=retention_time_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
+check_long_pulse = ctk.CTkCheckBox(window, text="Transfer Retention Time Graphic", variable=transfer_retention_time_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=600, y=20)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Long Pulse Graphic", variable=long_pulse_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
@@ -500,6 +545,9 @@ check_long_pulse.place(x=600, y=140)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Single Pulse Graphic", variable=single_pulse_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=600, y=170)
+
+check_long_pulse = ctk.CTkCheckBox(window, text="Transconduct Graphic and IGS", variable=transconduct_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
+check_long_pulse.place(x=600, y=200)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Relatorio", variable=power_point_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=850, y=20)

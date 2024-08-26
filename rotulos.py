@@ -25,12 +25,20 @@ def get_type(elemento):
         return "Bare"
     elif "tri" in elemento.lower():
         return "Tricamada"
+    elif "dop" in elemento.lower():
+        return "PoliDopamina"
+    elif "qua" in elemento.lower():
+        return "Quatro Camadas"
+    elif "qui" in elemento.lower():
+        return "Cinco Camadas"
 
 def get_chip(elemento):
     if versionador+'1'+versionador+'disp' in elemento.lower():
         return "1"
     elif versionador+'2'+versionador+'disp' in elemento.lower():
         return "2"
+    elif versionador+'7'+versionador+'disp' in elemento.lower():
+        return "7"
 
 def get_disp(elemento):
     if "disp1" in elemento.lower():
