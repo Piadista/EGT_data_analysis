@@ -40,6 +40,7 @@ if sistema_operacional == "Windows":
     from function_ppx_graphic import *
     from function_single_pulse_graphic import *
     from function_transconduct_graphic import *
+    from function_trans_short_pulse_graphic import *
     versionador = '\\'
 elif sistema_operacional == "Linux":
     print("Você está usando o Linux.")
@@ -129,6 +130,13 @@ sub_pasta_transconduct = os.path.join('dados_gerados', 'Dados Transcondutancia')
 os.makedirs(sub_pasta_transconduct, exist_ok=True)
 
 
+# Especifica o caminho da subpasta
+sub_pasta_trans_short_pulse = os.path.join('dados_gerados', 'Dados Trans Short Pulse')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_trans_short_pulse, exist_ok=True)
+
+
 
 
 
@@ -206,6 +214,18 @@ sub_pasta_grafico_igs = os.path.join('graficos_gerados', 'Grafico IGS')
 # Cria a subpasta dentro da pasta principal
 os.makedirs(sub_pasta_grafico_igs, exist_ok=True)
 
+# Especifica o caminho da subpasta
+sub_pasta_grafico_trans_short_pulse = os.path.join('graficos_gerados', 'Grafico Trans Short Pulse')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_trans_short_pulse, exist_ok=True)
+
+# Especifica o caminho da subpasta
+sub_pasta_grafico_transconduct_short_pulse = os.path.join('graficos_gerados'+versionador+'Grafico Trans Short Pulse', 'Grafico Transcondutancia Short Pulse')
+
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_transconduct_short_pulse, exist_ok=True)
+
 
     
     
@@ -249,6 +269,8 @@ def switch_single_pulse_graphic(option):
     single_pulse_graphic(option)
 def switch_transconduct_graphic(option):
     transconduct_graphic(option)
+def switch_trans_short_pulse_graphic(option):
+    trans_short_pulse_graphic(option)
     
     
     
@@ -314,6 +336,8 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         funcoes_executadas.append(switch_single_pulse_graphic)
     if funcoes_selecionadas["transconduct_graphic"]:
         funcoes_executadas.append(switch_transconduct_graphic)
+    if funcoes_selecionadas["trans_short_pulse_graphic"]:
+        funcoes_executadas.append(switch_trans_short_pulse_graphic)
         
     if funcoes_selecionadas["power_point"]:
         funcoes_executadas.append(switch_power_point)
@@ -371,6 +395,9 @@ def analisar_arquivos_em_pasta(filepath, funcoes_selecionadas):
         elif funcao == switch_transconduct_graphic:
             funcao(nomes_arquivos)
             progress_label.config(text="Gráfico Transcondutancia Concluído")
+        elif funcao == switch_trans_short_pulse_graphic:
+            funcao(nomes_arquivos)
+            progress_label.config(text="Gráfico Transcondutancia-Transfer Short Pulse Concluído")
             
         elif funcao == switch_power_point:
             funcao(nomes_pastas)
@@ -417,6 +444,7 @@ def openFile():
         "ppx_graphic": ppx_graphic_var.get(),
         "single_pulse_graphic": single_pulse_graphic_var.get(),
         "transconduct_graphic": transconduct_graphic_var.get(), 
+        "trans_short_pulse_graphic": trans_short_pulse_graphic_var.get(),
         "power_point": power_point_var.get()
     }
     analisar_arquivos_em_pasta(filepath, funcoes_selecionadas)
@@ -465,6 +493,7 @@ stability_graphic_var = BooleanVar()
 ppx_graphic_var = BooleanVar()
 single_pulse_graphic_var = BooleanVar()
 transconduct_graphic_var = BooleanVar()
+trans_short_pulse_graphic_var = BooleanVar()
 
 power_point_var = BooleanVar()
 
@@ -487,6 +516,7 @@ def selecionar_todos():
     ppx_graphic_var.set(True)
     single_pulse_graphic_var.set(True)
     transconduct_graphic_var.set(True)
+    trans_short_pulse_graphic_var.set(True)
     
     power_point_var.set(True)
 
@@ -548,6 +578,9 @@ check_long_pulse.place(x=600, y=170)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Transconduct Graphic and IGS", variable=transconduct_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=600, y=200)
+
+check_long_pulse = ctk.CTkCheckBox(window, text="Short Pulse Transconduct Graphic and Transfer", variable=trans_short_pulse_graphic_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
+check_long_pulse.place(x=600, y=230)
 
 check_long_pulse = ctk.CTkCheckBox(window, text="Relatorio", variable=power_point_var, onvalue=True, offvalue=False, bg_color="#D2691E", fg_color="green", font=("Arial", 12))
 check_long_pulse.place(x=850, y=20)
