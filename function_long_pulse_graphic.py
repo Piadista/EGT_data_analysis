@@ -124,9 +124,9 @@ def long_pulse_graphic(nomes_arquivos):
        
         
         df_final.insert(loc=0, column='Time',value= df_pos['Timestamp (s)'].to_numpy())
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Longo'+versionador+f'Pulso Longo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Longo'+versionador+f'Pulso Longo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Longo'+versionador+f'Pulso Longo {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Longo'+versionador+f'Pulso Longo&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Longo'+versionador+f'Pulso Longo&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Longo'+versionador+f'Pulso Longo&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
 
         df_final = pd.DataFrame()
         lista_df = []

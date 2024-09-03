@@ -123,9 +123,9 @@ def transfer_retention_time_graphic(nomes_arquivos):
         #lista_df.append(df_c[tipo_measure].reset_index(drop=True))
        # df_final = pd.concat(lista_df, axis=1)
         #df_final.insert(loc=0, column='Vgs',value= df_c['V'].to_numpy())
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Transfer Tempo de Retenção'+versionador+f'Retention Transfer {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Transfer Tempo de Retenção'+versionador+f'Retention Transfer {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Transfer Tempo de Retenção'+versionador+f'Retention Transfer {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Transfer Tempo de Retenção'+versionador+f'Retention Transfer&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Transfer Tempo de Retenção'+versionador+f'Retention Transfer&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Transfer Tempo de Retenção'+versionador+f'Retention Transfer&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
 
         df_final = pd.DataFrame()
         lista_df = []

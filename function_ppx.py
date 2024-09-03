@@ -143,4 +143,3 @@ def analise_ppx(nomes_pastas):
     new_dataframe.to_csv('dados_gerados'+versionador+'data_PPX_means.csv', index=False)
 
 #####################################################################FIM PPX###########################################################################################################
-

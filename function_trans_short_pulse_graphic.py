@@ -160,9 +160,9 @@ def trans_short_pulse_graphic(nomes_arquivos):
 
 
         df_final.insert(loc=0, column='V',value= df_150['V'].to_numpy())
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transfer Short Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transfer Short Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transfer Short Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transfer Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transfer Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transfer Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
         
         print(df_final)
         df_final = pd.DataFrame()
@@ -252,9 +252,9 @@ def trans_short_pulse_graphic(nomes_arquivos):
     
     
         df_final.insert(loc=0, column='V',value= df_150['V'].to_numpy())
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transconduct Short Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transconduct Short Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transconduct Short Pulse {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transconduct Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transconduct Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'Transconduct Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
         
         print(df_final)
 
@@ -270,6 +270,97 @@ def trans_short_pulse_graphic(nomes_arquivos):
 
 
 
+
+
+
+
+
+
+
+
+    df_150 = pd.DataFrame()
+    df_151 = pd.DataFrame()
+    df_152 = pd.DataFrame()
+
+    i=0
+    k=0
+    transfer = []
+    #Pego os tres primeiros caminhos da string, já que os arquivos estão na mesma pasta, e no final retiro esses tres primeiros arquivos já que ja foi feita a analise
+    for i in range(len(transfers)//3):
+        print("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+        i = i + 1
+        k = 0
+        for elemento in transfers[0:3]:
+            # Name of the folder and file name where the data is and use it as a pandas dataframe
+            if '150' in elemento:
+                df_150 = pd.read_csv(elemento, delimiter="\t")
+                
+                # Relevant parameters stability
+                transfers.append(elemento)
+                tipo_chip = get_type(elemento)
+                valor_chip = get_chip(elemento)
+                valor_disp = get_disp(elemento)
+                tipo_eletrolito = get_eletrolito(elemento)
+                
+                df_150 = correct_cycle_column(df_150)
+                transconduct = transfer_extractor_values(df_150)
+                print(transconduct)
+                
+                df_c = df_150.rename(columns={'igs_Oupt02__--0.1000' : 'IGS 150'})
+                lista_df.append((df_c['IGS 150']*1000).reset_index(drop=True))
+                df_final = pd.concat(lista_df, axis=1)
+    
+            elif '151' in elemento:
+                df_151 = pd.read_csv(elemento, delimiter="\t")
+                # Relevant parameters negative
+                transfers.append(elemento)
+                tipo_chip = get_type(elemento)
+                valor_chip = get_chip(elemento)
+                valor_disp = get_disp(elemento)
+                tipo_eletrolito = get_eletrolito(elemento)
+                
+                df_151 = correct_cycle_column(df_151)
+                transconduct = transfer_extractor_values(df_151)
+                
+                
+                df_c = df_151.rename(columns={'igs_Oupt02__--0.1000' : 'IGS 151'})
+                lista_df.append((df_c['IGS 151']*1000).reset_index(drop=True))
+                df_final = pd.concat(lista_df, axis=1)
+                
+    
+            elif '152' in elemento:
+                df_152 = pd.read_csv(elemento, delimiter="\t")
+                # Relevant parameters positive
+                transfers.append(elemento)
+                tipo_chip = get_type(elemento)
+                valor_chip = get_chip(elemento)
+                valor_disp = get_disp(elemento)
+                tipo_eletrolito = get_eletrolito(elemento)
+                
+                
+                df_152 = correct_cycle_column(df_152)
+                transconduct = transfer_extractor_values(df_152)
+                
+                df_c = df_152.rename(columns={'igs_Oupt02__--0.1000' : 'IGS 152'})
+                lista_df.append((df_c['IGS 152']*1000).reset_index(drop=True))
+                df_final = pd.concat(lista_df, axis=1)
+    
+    
+    
+    
+        df_final.insert(loc=0, column='V',value= df_150['V'].to_numpy())
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'IGS Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'IGS Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Trans Short Pulse'+versionador+f'IGS Short Pulse&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+        
+        print(df_final)
+
+        df_final = pd.DataFrame()
+        lista_df = []
+        k=0
+        
+        transfer = []
+        del transfers[0:3]
 
 
 
@@ -329,6 +420,7 @@ def trans_short_pulse_graphic(nomes_arquivos):
             plot.color = colors[col % len(colors)]
             plot.set_int('symbol.size', 7)
             # Set marker symbol to circle
+            plot.set_int('symbol.kind', 2)
             plot.set_int('line.width', 5)
             plot.set_int('lineStyle', 1)
             plot.set_int('lineThickness', 5)
@@ -336,13 +428,16 @@ def trans_short_pulse_graphic(nomes_arquivos):
         # Split the string at the specified character
         character = '.'
         parts = file_names[i].split(character)
-
+        
         # Select the part up to the first occurrence of the character
         result = parts[0]
+        result1 = result.split('&')
         lgnd = gp[0].label('Legend')
         lgnd.text=f'\l(1) After 0V\n\l(2) After +0.8V\n\l(3) After -0.8V\n'
-    
-        gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
+        if "IGS" in result:
+            gp[0].axis('y').title = f'Gate-source current, Igs (nA)'
+        else:
+            gp[0].axis('y').title = f'Source-drain current, Ids (µA)'
         gp[0].axis('x').title = f'Vgs'
         lgnd.set_int('fsize', 17)
         lgnd.set_int('left',3000)
@@ -353,7 +448,12 @@ def trans_short_pulse_graphic(nomes_arquivos):
         label.set_int('fsize', 18)
         label.set_int('left',1050)
         label.set_int('top',350)
-        gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Grafico Trans Short Pulse'+versionador+f'{result}.png', width=800)
+        if "IGS" in result:
+            gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Grafico Trans Short Pulse'+versionador+'Grafico Transcondutancia Short Pulse'+versionador+f'{result}.png', width=800)
+        elif "Transconduct" in result:
+            gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Grafico Trans Short Pulse'+versionador+'Grafico IGS Short Pulse'+versionador+f'{result}.png', width=800)
+        else:
+            gp.save_fig(current_directory+versionador+'graficos_gerados'+versionador+'Grafico Trans Short Pulse'+versionador+f'{result}.png', width=800)
 
     
    

@@ -31,12 +31,16 @@ def get_type(elemento):
         return "Quatro Camadas"
     elif "qui" in elemento.lower():
         return "Cinco Camadas"
+    elif "h2odi" in elemento.lower():
+        return "H2ODI"
 
 def get_chip(elemento):
     if versionador+'1'+versionador+'disp' in elemento.lower():
         return "1"
     elif versionador+'2'+versionador+'disp' in elemento.lower():
         return "2"
+    elif versionador+'5'+versionador+'disp' in elemento.lower():
+        return "5"
     elif versionador+'7'+versionador+'disp' in elemento.lower():
         return "7"
 
@@ -61,6 +65,8 @@ def get_eletrolito(elemento):
         return "KCl"
     elif "nenhum" in elemento.lower():
         return "Nenhum"
+    elif "h2odi" in elemento.lower():
+        return "H2ODI"
 
 def get_measure(elemento):
     if "110transfer" in elemento.lower():

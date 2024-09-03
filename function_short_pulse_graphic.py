@@ -1,4 +1,5 @@
 
+
 from math import sqrt
 
 import warnings
@@ -36,68 +37,140 @@ def short_pulse_graphic(nomes_arquivos):
             # df_arquivo = pd.read_csv(caminhos, sep='\t')
             pulso_curto.append(caminhos)
             i = i + 1
-
-    i = 0
-
-    pulsos = []
-
-    #Pego os tres primeiros caminhos da string, já que os arquivos estão na mesma pasta, e no final retiro esses tres primeiros arquivos já que ja foi feita a analise
-    for i in range(len(pulso_curto)//3):
-        print("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
-        i = i + 1
-        k = 0
-        for elemento in pulso_curto[0:3]:
-            # Name of the folder and file name where the data is and use it as a pandas dataframe
-            if '150stability' in elemento:
-                df_sta = pd.read_csv(elemento, delimiter="\t")
-                # Relevant parameters stability
-                pulsos.append(elemento)
-                tipo_chip = get_type(elemento)
-                valor_chip = get_chip(elemento)
-                valor_disp = get_disp(elemento)
-                tipo_eletrolito = get_eletrolito(elemento)
-                df_c = df_sta.rename(columns={'Current SMUb (A)' : 'Estabilidade'})
-                lista_df.append(df_c['Estabilidade'].reset_index(drop=True))
-                df_final = pd.concat(lista_df, axis=1)
-
-            elif '152pulsonegativo' in elemento:
-                df_neg = pd.read_csv(elemento, delimiter="\t")
-                # Relevant parameters negative
-                pulsos.append(elemento)
-                tipo_chip = get_type(elemento)
-                valor_chip = get_chip(elemento)
-                valor_disp = get_disp(elemento)
-                tipo_eletrolito = get_eletrolito(elemento)
-                df_c = df_neg.rename(columns={'Current SMUb (A)' : 'Negativo'})
-                lista_df.append(df_c['Negativo'].reset_index(drop=True))
-                df_final = pd.concat(lista_df, axis=1)
-
-            elif '151pulsopositivo' in elemento:
-                df_pos = pd.read_csv(elemento, delimiter="\t")
-                # Relevant parameters positive
-                pulsos.append(elemento)
-                tipo_chip = get_type(elemento)
-                valor_chip = get_chip(elemento)
-                valor_disp = get_disp(elemento)
-                tipo_eletrolito = get_eletrolito(elemento)
-                df_c = df_pos.rename(columns={'Current SMUb (A)' : 'Positivo'})
-                lista_df.append(df_c['Positivo'].reset_index(drop=True))
-                df_final = pd.concat(lista_df, axis=1)
-
-
-
-
-        df_final.insert(loc=0, column='Time',value= df_pos['Timestamp (s)'].to_numpy())
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'Pulso Curto {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'Pulso Curto {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
-        df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'Pulso Curto {tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
-
-        df_final = pd.DataFrame()
-        lista_df = []
-        k=0
+      
+        
+        
+        i = 0
 
         pulsos = []
-        del pulso_curto[0:3]
+
+        #Pego os tres primeiros caminhos da string, já que os arquivos estão na mesma pasta, e no final retiro esses tres primeiros arquivos já que ja foi feita a analise
+        for i in range(len(pulso_curto)//3):
+            print("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+            i = i + 1
+            k = 0
+            for elemento in pulso_curto[0:3]:
+                # Name of the folder and file name where the data is and use it as a pandas dataframe
+                if '150stability' in elemento:
+                    df_sta = pd.read_csv(elemento, delimiter="\t")
+                    # Relevant parameters stability
+                    pulsos.append(elemento)
+                    tipo_chip = get_type(elemento)
+                    valor_chip = get_chip(elemento)
+                    valor_disp = get_disp(elemento)
+                    tipo_eletrolito = get_eletrolito(elemento)
+                    df_c = df_sta.rename(columns={'Current SMUA (A)' : 'Estabilidade'})
+                    lista_df.append(df_c['Estabilidade'].reset_index(drop=True))
+                    df_final = pd.concat(lista_df, axis=1)
+
+                elif '152pulsonegativo' in elemento:
+                    df_neg = pd.read_csv(elemento, delimiter="\t")
+                    # Relevant parameters negative
+                    pulsos.append(elemento)
+                    tipo_chip = get_type(elemento)
+                    valor_chip = get_chip(elemento)
+                    valor_disp = get_disp(elemento)
+                    tipo_eletrolito = get_eletrolito(elemento)
+                    df_c = df_neg.rename(columns={'Current SMUA (A)' : 'Negativo'})
+                    lista_df.append(df_c['Negativo'].reset_index(drop=True))
+                    df_final = pd.concat(lista_df, axis=1)
+
+                elif '151pulsopositivo' in elemento:
+                    df_pos = pd.read_csv(elemento, delimiter="\t")
+                    # Relevant parameters positive
+                    pulsos.append(elemento)
+                    tipo_chip = get_type(elemento)
+                    valor_chip = get_chip(elemento)
+                    valor_disp = get_disp(elemento)
+                    tipo_eletrolito = get_eletrolito(elemento)
+                    df_c = df_pos.rename(columns={'Current SMUA (A)' : 'Positivo'})
+                    lista_df.append(df_c['Positivo'].reset_index(drop=True))
+                    df_final = pd.concat(lista_df, axis=1)
+
+
+
+
+            df_final.insert(loc=0, column='Time',value= df_pos['Timestamp (s)'].to_numpy())
+            df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'IGS Pulso Curto&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+            df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'IGS Pulso Curto&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+            df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'IGS Pulso Curto&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+
+            df_final = pd.DataFrame()
+            lista_df = []
+            k=0
+
+            pulsos = []
+            
+        
+        
+        
+        
+        i = 0
+
+        pulsos = []
+
+        #Pego os tres primeiros caminhos da string, já que os arquivos estão na mesma pasta, e no final retiro esses tres primeiros arquivos já que ja foi feita a analise
+        for i in range(len(pulso_curto)//3):
+            print("AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIII")
+            i = i + 1
+            k = 0
+            for elemento in pulso_curto[0:3]:
+                # Name of the folder and file name where the data is and use it as a pandas dataframe
+                if '150stability' in elemento:
+                    df_sta = pd.read_csv(elemento, delimiter="\t")
+                    # Relevant parameters stability
+                    pulsos.append(elemento)
+                    tipo_chip = get_type(elemento)
+                    valor_chip = get_chip(elemento)
+                    valor_disp = get_disp(elemento)
+                    tipo_eletrolito = get_eletrolito(elemento)
+                    df_c = df_sta.rename(columns={'Current SMUb (A)' : 'Estabilidade'})
+                    lista_df.append(df_c['Estabilidade'].reset_index(drop=True))
+                    df_final = pd.concat(lista_df, axis=1)
+
+                elif '152pulsonegativo' in elemento:
+                    df_neg = pd.read_csv(elemento, delimiter="\t")
+                    # Relevant parameters negative
+                    pulsos.append(elemento)
+                    tipo_chip = get_type(elemento)
+                    valor_chip = get_chip(elemento)
+                    valor_disp = get_disp(elemento)
+                    tipo_eletrolito = get_eletrolito(elemento)
+                    df_c = df_neg.rename(columns={'Current SMUb (A)' : 'Negativo'})
+                    lista_df.append(df_c['Negativo'].reset_index(drop=True))
+                    df_final = pd.concat(lista_df, axis=1)
+
+                elif '151pulsopositivo' in elemento:
+                    df_pos = pd.read_csv(elemento, delimiter="\t")
+                    # Relevant parameters positive
+                    pulsos.append(elemento)
+                    tipo_chip = get_type(elemento)
+                    valor_chip = get_chip(elemento)
+                    valor_disp = get_disp(elemento)
+                    tipo_eletrolito = get_eletrolito(elemento)
+                    df_c = df_pos.rename(columns={'Current SMUb (A)' : 'Positivo'})
+                    lista_df.append(df_c['Positivo'].reset_index(drop=True))
+                    df_final = pd.concat(lista_df, axis=1)
+
+
+
+
+            df_final.insert(loc=0, column='Time',value= df_pos['Timestamp (s)'].to_numpy())
+            df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'Pulso Curto&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.csv', index=False)
+            df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'Pulso Curto&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.dat', index=False)
+            df_final.to_csv(f'dados_gerados'+versionador+f'Dados Pulso Curto'+versionador+f'Pulso Curto&{tipo_chip} Chip {valor_chip} Disp {valor_disp} {tipo_eletrolito}.txt', index=False)
+
+            df_final = pd.DataFrame()
+            lista_df = []
+            k=0
+
+            pulsos = []
+            del pulso_curto[0:3]
+        
+        
+        
+
+        
 
   
     # Set Origin instance visibility.

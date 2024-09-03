@@ -1,0 +1,204 @@
+Filename
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transfer Tempo de Retencao\Retention Transfer&Tricamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Transcondutancia\Transconduct&Tricamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Graficos Pulso Longo\Pulso Longo&Tricamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico IGS\IGS&Tricamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Transfer Short Pulse&Tricamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico Transcondutancia Short Pulse\IGS Short Pulse&Tricamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Bicamada Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Bicamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Bicamada Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Bicamada Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Bicamada Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Bicamada Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Cinco Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Cinco Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Cinco Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Enode Chip 1 Disp 1 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Enode Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Enode Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Enode Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Enode Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Enode Chip 2 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&PoliDopamina Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&PoliDopamina Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Quatro Camadas Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Quatro Camadas Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Quatro Camadas Chip 1 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Standard Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Standard Chip 1 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Standard Chip 1 Disp 3 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Standard Chip 2 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Standard Chip 2 Disp 2 MgCl2.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Standard Chip 2 Disp 3 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Tricamada Chip 1 Disp 1 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Tricamada Chip 1 Disp 2 KCl.png
+C:\Users\eduardo.neto\Desktop\programa_v5\graficos_gerados\Grafico Trans Short Pulse\Grafico IGS Short Pulse\Transconduct Short Pulse&Tricamada Chip 1 Disp 3 KCl.png

@@ -1,5 +1,10 @@
 
 from math import sqrt
+from scipy.optimize import curve_fit
+from scipy import stats
+from matplotlib.lines import Line2D
+import matplotlib.pyplot as plt
+import pandas as pd
 
 import warnings
 from function_transfer import *
@@ -125,6 +130,38 @@ def short_pulse__extractor_values(df, name):
 
     return values
 
+
+
+# Defina a função exponencial
+def exp(x, a, b, c):
+    return a * np.exp(-b * x) + c
+
+def exp_fit(df, ini, fin):
+    df = df[(df["Timestamp (s)"] >= ini) & (df["Timestamp (s)"] <= fin)]
+    # Trying a trick to turn the current at the same magnitude of the value of the constant time, artificial, but maybe is enough for the parameters
+    x0 = df["Timestamp (s)"][df["Timestamp (s)"].index[0]]
+    x = df["Timestamp (s)"].to_numpy()
+    x = x - x0
+    y = df["Current SMUb (A)"]
+    y = y * 10 ** 6
+
+    # Aware, trick to overcome issue about the convergence of fit data in a large range
+    if fin - ini > 500:
+        popt, pcov = curve_fit(exp, x, y, p0=[3e+00, 2e-03, 10], maxfev=4000)
+    else:
+        popt, pcov = curve_fit(exp, x, y, p0=[1e+00, 2e-1, 10],maxfev=4000)
+    perr = np.sqrt(np.diag(pcov))
+
+    # residual sum of squares
+    ss_res = np.sum((y - exp(x, *popt)) ** 2)
+    # total sum of squares
+    ss_tot = np.sum((y - np.mean(y)) ** 2)
+    # r-squared
+    r2 = 1 - (ss_res / ss_tot)
+    
+    # Return a, std_a, const_time, std_const_time, c, std_c, r2, with I(t) = a*exp(-t/const_time) + c
+    return popt[0], perr[0], 1 / popt[1], (perr[1] / popt[1] ** 2), popt[2], perr[2], r2,x0
+
 ################################################################FIM FUNÇÕES AUXILIARES PULSO CURTO########################################################################################
 
 
@@ -138,7 +175,7 @@ def create_short_pulse():
                                     'IGS_pico_ant_pos [A]', 'IGS_pico_dep_pos [A]', 'IDSant_neg (35s - 50s) [A]', 'Std IDSant_neg [A]', 'IDSdep_neg (150s - 165s) [A]',
                                     'Std IDSdep_neg [A]', 'delIDS_neg [A]', 'Std delIDS_neg [A]', 'IGSant_neg (35s - 50s) [A]', 'Std IGSant_neg [A]',
                                     'IGSdur_neg (75s - 85s) [A]', 'Std IGSdur_neg [A]','IGSdep_neg (150s - 165s) [A]', 'Std IGSdep_neg [A]', 'delIGS_neg [A]',
-                                    'Std delIGS_neg [A]', 'IGS_pico_ant_neg [A]', 'IGS_pico_dep_neg [A]'])
+                                    'Std delIGS_neg [A]', 'IGS_pico_ant_neg [A]', 'IGS_pico_dep_neg [A]','Tau trans pos [s]', 'Std Tau trans pos [s]'])
 
 
     # Export dataframe into a .txt file
@@ -221,6 +258,34 @@ def analise_short_pulse(nomes_arquivos):
                 aus = aux_max/aux_min2
                 print(f'Aux ratio mid {aus}')
                 
+       
+        # Relevant parameters positive
+        
+        a_tra_pos, std_a_tra_pos, tau_tra_pos, std_tau_tra_pos, c_tra_pos, std_c_tra_pos, r2_tra_pos,x01 = exp_fit(df_pos, 101, 135)
+        
+        # Agora, vamos plotar os dados originais e a curva ajustada
+        
+        plt.figure(figsize=(10, 6))
+
+        # Plot dos dados originais
+        plt.scatter(df_pos["Timestamp (s)"], df_pos["Current SMUb (A)"] * 10**6, label='Dados Originais', color='blue')
+        
+        # Cálculo dos valores da curva ajustada
+        x_values = np.linspace(102.5, 135, 100)
+        y_values = exp(x_values - x01, a_tra_pos, 1/tau_tra_pos, c_tra_pos) 
+        
+        # Plot da curva ajustada
+        plt.plot(x_values, y_values, label='Curva Ajustada (Exponencial)', color='red')
+        
+        plt.xlabel('Tempo (s)')
+        plt.ylabel('Corrente (uA)')
+        plt.xlim(101, 135)
+        plt.title('Ajuste Exponencial da Corrente ao Tempo')
+        plt.legend([f'Tau: {tau_tra_pos} a: {a_tra_pos} c: {c_tra_pos}', f'Chip: {tipo_chip} Valor Chip: {valor_chip} Valor Disp: {valor_disp} Tipo Eletrolito: {tipo_eletrolito}'])
+        plt.grid(True)
+        plt.savefig(f'graficos_gerados'+versionador+f'graficoposcurto_{i}.png')
+       
+        plt.show()
                 
                 
                 
@@ -239,7 +304,8 @@ def analise_short_pulse(nomes_arquivos):
                    'delIDS_neg [A]': aux(values_neg, 'IDS_del_neg'), 'Std delIDS_neg [A]': aux(values_neg, 'stdIDS_del_neg'), 'IGSant_neg (35s - 50s) [A]': aux(values_neg, 'IGS_ant_neg'),
                    'Std IGSant_neg [A]': aux(values_neg, 'stdIGS_ant_neg'), 'IGSdur_neg (75s - 85s) [A]': aux(values_neg, 'IGS_dur_neg'), 'Std IGSdur_neg [A]': aux(values_neg, 'stdIGS_dur_neg'),
                    'IGSdep_neg (150s - 165s) [A]': aux(values_neg, 'IGS_dep_neg'), 'Std IGSdep_neg [A]': aux(values_neg, 'stdIGS_dep_neg'), 'delIGS_neg [A]': aux(values_neg, 'IGS_del_neg'),
-                   'Std delIGS_neg [A]': aux(values_neg, 'stdIGS_del_neg'), 'IGS_pico_ant_neg [A]': aux(values_neg, 'IGS_pic_ant_neg'), 'IGS_pico_dep_neg [A]': aux(values_neg, 'IGS_pic_dep_neg')}
+                   'Std delIGS_neg [A]': aux(values_neg, 'stdIGS_del_neg'), 'IGS_pico_ant_neg [A]': aux(values_neg, 'IGS_pic_ant_neg'), 'IGS_pico_dep_neg [A]': aux(values_neg, 'IGS_pic_dep_neg'), 
+                   'Tau trans pos [s]': tau_tra_pos, 'Std Tau trans pos [s]': std_tau_tra_pos}
 
         # Append the dictionary to the DataFrame previously created
         df = pd.read_csv('dados_gerados'+versionador+'data_short_pulses.txt', delimiter="\t")
@@ -263,7 +329,8 @@ def analise_short_pulse(nomes_arquivos):
     data_2 = data.groupby(["Type","Electrolyte"], as_index=False).agg(['mean', 'std'])
     data_2 = data_2.drop(["Chip", "Disp", "Std IDSmed [A]", "Std IGSmed [A]", "Std IDSant_pos [A]", "Std IDSdep_pos [A]", "Std delIDS_pos [A]",
                           "Std IGSant_pos [A]", "Std IGSdur_pos [A]", "Std IGSdep_pos [A]", "Std delIGS_pos [A]", "Std IDSant_neg [A]", "Std IDSdep_neg [A]",
-                          "Std delIDS_neg [A]", "Std IGSant_neg [A]", "Std IGSdur_neg [A]", "Std IGSdep_neg [A]", "Std delIGS_neg [A]"] , axis=1, level=0)
+                          "Std delIDS_neg [A]", "Std IGSant_neg [A]", "Std IGSdur_neg [A]", "Std IGSdep_neg [A]", "Std delIGS_neg [A]", 
+                          "Std Tau trans pos [s]"] , axis=1, level=0)
 
     # Reset the index
     new_dataframe = data_2.reset_index(drop=True)

@@ -226,7 +226,11 @@ sub_pasta_grafico_transconduct_short_pulse = os.path.join('graficos_gerados'+ver
 # Cria a subpasta dentro da pasta principal
 os.makedirs(sub_pasta_grafico_transconduct_short_pulse, exist_ok=True)
 
+# Especifica o caminho da subpasta
+sub_pasta_grafico_igs_short_pulse = os.path.join('graficos_gerados'+versionador+'Grafico Trans Short Pulse', 'Grafico IGS Short Pulse')
 
+# Cria a subpasta dentro da pasta principal
+os.makedirs(sub_pasta_grafico_igs_short_pulse, exist_ok=True)
     
     
     
